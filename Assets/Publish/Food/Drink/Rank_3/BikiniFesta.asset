@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79001fdc773a4d24badbc59b07e1e66c, type: 3}
+  m_Name: BikiniFesta
+  m_EditorClassIdentifier: 
+  FoodName: "\uBE44\uAE30\uD2F0 \uB3D9\uC0B0 \uB300\uCD95\uC81C"
+  FoodInfo: 
+  foodtype: 0
+  FoodSprite: {fileID: 0}
+  Ingredients:
+  - {fileID: 11400000, guid: 320a411b98416124cae9872793781cde, type: 2}
+  - {fileID: 11400000, guid: 337b50c6354c5874998b7b34dfed5117, type: 2}
+  - {fileID: 11400000, guid: 67e8b22d39e228a4d857470d9f8b12ba, type: 2}
+  - {fileID: 11400000, guid: 1b56e8fab2982f1478c4cbb69373b922, type: 2}
