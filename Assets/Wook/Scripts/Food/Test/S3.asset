@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79001fdc773a4d24badbc59b07e1e66c, type: 3}
-  m_Name: testIGD4
+  m_Name: S3
   m_EditorClassIdentifier: 
-  FoodName: IGD4
+  FoodName: S3
   FoodInfo: 
-  foodtype: 1
-  FoodSprite: {fileID: 21300000, guid: 95004328aff6d55499cca627eafce67d, type: 3}
+  foodtype: 2
+  FoodSprite: {fileID: 21300000, guid: 4516a2311d3f4b14c96690f7dce0ffea, type: 3}
   Ingredients: []

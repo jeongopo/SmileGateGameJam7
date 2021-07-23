@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class ingredient : MonoBehaviour
 {
+    Select_ingredient select_Ingredient;
     public Food IGD;
     Image image;
     private void Start() {
         image=this.gameObject.GetComponent<Image>();
+        select_Ingredient = FindObjectOfType<Select_ingredient>();
     }
 
     public void setIGD(Food setIGD){
@@ -17,7 +19,14 @@ public class ingredient : MonoBehaviour
     }
 
     public void getIGD(){
-        Debug.Log("IGD name : "+IGD.FoodName);
+        if(IGD.foodtype == FoodType.Ingredients_Main)
+        {
+            select_Ingredient.Main_Ingredient_Select(IGD);
+        }
+        else if(IGD.foodtype == FoodType.Ingredients_Sub)
+        {
+            select_Ingredient.Sub_Ingredient_Select(IGD);
+        }
     }
 
 }
