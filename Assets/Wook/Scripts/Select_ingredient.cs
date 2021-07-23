@@ -64,7 +64,7 @@ public class Select_ingredient : MonoBehaviour
         F_Sub_Food[num] = null;
         Change_Alpha(B_Sub_Ingredient[num], 0);
 
-        if (num != SubFood_Count)//중간 재료를 선택했을 경우
+        if (num+1 != SubFood_Count)//중간 재료를 선택했을 경우
             Swap_sub(num);
         SubFood_Count--;
 
