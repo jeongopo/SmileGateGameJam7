@@ -11,6 +11,7 @@ public class ingredient : MonoBehaviour
     private void Start() {
         image=this.gameObject.GetComponent<Image>();
         select_Ingredient = FindObjectOfType<Select_ingredient>();
+        image.sprite = IGD.FoodSprite;
     }
 
     public void setIGD(Food setIGD){
