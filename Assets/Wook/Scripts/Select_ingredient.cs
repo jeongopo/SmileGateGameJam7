@@ -91,6 +91,7 @@ public class Select_ingredient : MonoBehaviour
         for(int i = Unselect; i< Unselect+Swap_Count; i++)
         {
             F_Sub_Food[i] = F_Sub_Food[i + 1];
+            F_Sub_Food[i + 1] = null;
             Change_button(B_Sub_Ingredient[i], F_Sub_Food[i], 1);
             Change_Alpha(B_Sub_Ingredient[i + 1], 0);
         }
