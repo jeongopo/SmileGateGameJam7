@@ -20,9 +20,9 @@ public class DataManager : MonoBehaviour
             instance = this;
     }
 
-    List<Dictionary<int, int>> ReadIntIntFile(string file)
+    Dictionary<int, int> ReadIntIntFile(string file)
     {
-        List<Dictionary<int,int>> list = new List<Dictionary<int, int>>();
+        Dictionary<int,int> tmp = new Dictionary<int, int>();
         StreamReader sr = new StreamReader(Application.dataPath + "/" + file);
 
         bool endOfFile = false;
@@ -35,14 +35,14 @@ public class DataManager : MonoBehaviour
                 break;
             }
             string[] data_values = data_String.Split(',');
-            list.Add(int.Parse(data_values[0]), int.Parse(data_values[1]));
+            tmp.Add(int.Parse(data_values[0]), int.Parse(data_values[1]));
         }
-        return list;
+        return tmp;
     }
 
-    List<Dictionary<string, string>> ReadStringStringFile(string file)
+    Dictionary<string, string> ReadStringStringFile(string file)
     {
-        List<Dictionary<string,string>> list = new List<Dictionary<string, string>>();
+        Dictionary<string,string> tmp = new Dictionary<string, string>();
         StreamReader sr = new StreamReader(Application.dataPath + "/" + file);
 
         bool endOfFile = false;
@@ -55,14 +55,14 @@ public class DataManager : MonoBehaviour
                 break;
             }
             string[] data_values = data_String.Split(',');
-            list.Add(int.Parse(data_values[0]), int.Parse(data_values[1]));
+            tmp.Add(data_values[0], data_values[1]);
         }
-        return list;
+        return tmp;
     }
 
-    List<Dictionary<string, List<int>>> ReadSuccessPointFile(string file)
+    Dictionary<int, List<int>> ReadSuccessPointFile(string file)
     {
-        List<Dictionary<string,List<int>>> list = new List<Dictionary<string, List<int>>>();
+        Dictionary<int, List<int>> tmp = new Dictionary<int, List<int>>();
         StreamReader sr = new StreamReader(Application.dataPath + "/" + file);
 
         bool endOfFile = false;
@@ -75,14 +75,14 @@ public class DataManager : MonoBehaviour
                 break;
             }
             string[] data_values = data_String.Split(',');
-            List<int> tmp = new List<int>();
+            List<int> listTmp = new List<int>();
             for(int i = 0 ; i < 3; i++)
             {
-                tmp.Add(int.Parse(data_values[i + 1]));
+                listTmp.Add(int.Parse(data_values[i + 1]));
             }
-            list.Add(data_values[0], tmp);
+            tmp.Add(int.Parse(data_values[0]), listTmp);
         }
-        return list;
+        return tmp;
     }
 
     void DataSetting()
@@ -112,7 +112,7 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public int AcheiveStagePoint(int _OrderSuccessCount)
+    public void AcheiveStagePoint(int _OrderSuccessCount)
     {
         currentStagePoint += _OrderSuccessCount;
         CheckStageClear();

@@ -36,9 +36,9 @@ public class Customer : MonoBehaviour
     void CheckDrink(string _ReceivedDrinkName) //자신이 주문한 음료와 받은 음료가 맞는지 검사
     {
         string ReceivedDrinkName = _ReceivedDrinkName;
-        for (int j = 0; j < Drink.Length; j++)
+        for (int i = 0; i < OrderDrink.Count; i++)
         {
-            if (ReceivedDrink[i].Equals(OrderDrink[j]))
+            if (OrderDrink[i].Equals(ReceivedDrinkName))
             {
                 OrderSuccess[i] = true;
                 OrderSuccessCount++;
@@ -63,7 +63,7 @@ public class Customer : MonoBehaviour
 
     public void ReceiveDrink(string _DrinkName) //음료 주기
     {
-        CheckDrink();
+        CheckDrink(_DrinkName);
     }
 
 }
