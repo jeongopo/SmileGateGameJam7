@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour
 {
-    public List<string> ReceivedDrink = new List<string>();
+    public Sprite[] CustomerSprites;
+    public Animator[] CustomerAnimators;
+    public List<string> OrderDrink = new List<string>();
+
     [SerializeField] float Order_Timer;
     [SerializeField] float Timer;
-    [SerializeField] List<string> OrderDrink = new List<string>();
     [SerializeField] bool isOrder = false; // �ֹ��� �ߴ��� 
 
+    public Animator animator;
+    public List<string> ReceivedDrink = new List<string>();
     List<bool> OrderSuccess = new List<bool>();
     int OrderSuccessCount = 0;
 
@@ -33,11 +37,25 @@ public class Customer : MonoBehaviour
         Timer = Order_Timer;
     }
 
+    public void SetOrderDrink(List<string> Drinks, int _orderCount)
+    {
+        for(int i = 0; i < _orderCount; i++)
+        {
+            OrderDrink.Add(Drinks[Random.Range(0, Drinks.Count)]);
+        }
+    }
+
     void CheckDrink(string _ReceivedDrinkName) //자신이 주문한 음료와 받은 음료가 맞는지 검사
     {
+        //중복된 음료를 주문할때 예외처리
         string ReceivedDrinkName = _ReceivedDrinkName;
         for (int i = 0; i < OrderDrink.Count; i++)
         {
+            if(OrderSuccess[i])
+            {
+                continue;
+            }
+
             if (OrderDrink[i].Equals(ReceivedDrinkName))
             {
                 OrderSuccess[i] = true;
