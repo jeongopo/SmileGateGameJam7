@@ -8,10 +8,16 @@ public class GameManagerScript : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("StageStart", customerSapwnDelay, customerSapwnDelay);
+        StageStart();
+        InvokeRepeating("SapwnStageCustomer", customerSapwnDelay, customerSapwnDelay);
     }
 
-    public void StageStart()
+    void StageStart()
+    {
+        DataManager.instance.SetStartStage();
+    }
+
+    public void SapwnStageCustomer()
     {
         CustomerManager.instance.SapwnCustomer();
     }

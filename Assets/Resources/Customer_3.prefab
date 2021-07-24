@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8381745450706142356}
   m_Layer: 0
   m_Name: Customer_3
-  m_TagString: Untagged
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   isOrder: 0
   animator: {fileID: 0}
   ReceivedDrink: []
+  positionNumber: 0
 --- !u!95 &8381745450706142356
 Animator:
   serializedVersion: 3

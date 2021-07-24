@@ -232,8 +232,13 @@ public class DataManager : MonoBehaviour
         return tmp;
     }
 
-    public void UsePoint(int _Point)
+    public void UsePoint(int _Point) //재료사용
     {
         currentStagePoint += _Point;
+    }
+
+    public void SetStartStage()
+    {
+        currentStagePoint = defaultPoint;
     }
 }
