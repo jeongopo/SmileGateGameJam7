@@ -53,6 +53,7 @@ public class Customer : MonoBehaviour
             OrderDrink.Add(Drinks[Random.Range(0, Drinks.Count)]);
             OrderSuccess.Add(false);
         }
+        FindObjectOfType<OrderUIManager>().setStart(this.gameObject);
     }
 
     void CheckDrink(Food _ReceivedDrink) //자신이 주문한 음료와 받은 음료가 맞는지 검사
@@ -96,6 +97,7 @@ public class Customer : MonoBehaviour
         OrderSuccess.Clear();
         StagePointLits.Clear();
         OrderSuccessCount = 0;
+        positionNumber = 0;
         spriteRenderer.material = shakeMaterials[0];
 
     }
@@ -133,6 +135,7 @@ public class Customer : MonoBehaviour
     private void Update()
     {
         OrderTimer();
+        Debug.Log(positionNumber);
     }
 
 }

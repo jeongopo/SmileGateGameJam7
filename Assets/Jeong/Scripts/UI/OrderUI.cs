@@ -15,8 +15,8 @@ public class OrderUI : MonoBehaviour
     public void setimg(){ //주문받은 내용을 UI로 표시하는 함수
         Debug.Log("주문 개수 : "+customer.GetComponent<Customer>().OrderDrink.Count);
         Debug.Log("슬롯 개수 : "+slots.Length);
-        for(int i=0;i<3;i++){
-            slots[i+1].gameObject.SetActive(true);
+        for(int i=1;i<slots.Length;i++){
+            slots[i].gameObject.SetActive(true);
         }
 
         for(int i=1;i<slots.Length;i++){
