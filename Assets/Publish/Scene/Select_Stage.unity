@@ -427,7 +427,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 897952025}
   m_OnClick:
     m_PersistentCalls:
@@ -639,6 +639,7 @@ GameObject:
   - component: {fileID: 1364777169}
   - component: {fileID: 1364777168}
   - component: {fileID: 1364777167}
+  - component: {fileID: 1364777171}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -730,6 +731,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1364777171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364777166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97038a69b961d56488105a38866d5130, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Normal: {fileID: 1976981967}
+  Hard: {fileID: 897952024}
 --- !u!1 &1802715575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,7 +1035,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1976981968}
   m_OnClick:
     m_PersistentCalls:
