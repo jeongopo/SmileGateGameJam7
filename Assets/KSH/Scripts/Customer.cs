@@ -53,7 +53,7 @@ public class Customer : MonoBehaviour
             OrderDrink.Add(Drinks[Random.Range(0, Drinks.Count)]);
             OrderSuccess.Add(false);
         }
-        FindObjectOfType<OrderUIManager>().setStart(this.gameObject);
+        FindObjectOfType<OrderUIManager>().setStart(this);
     }
 
     void CheckDrink(Food _ReceivedDrink) //자신이 주문한 음료와 받은 음료가 맞는지 검사

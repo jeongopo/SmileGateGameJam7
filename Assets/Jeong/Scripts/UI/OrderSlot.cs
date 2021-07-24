@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class OrderSlot : MonoBehaviour
 {
     Image image;
-    void Start()
+    void Awake()
     {
         image=GetComponent<Image>();
     }
 
-    public void changeimg(Sprite pimg){
-        image.sprite=pimg;
+    public void changeimg(Sprite pimg)
+    {
+        image.sprite = pimg;
     }
 
     public void doneimg(){

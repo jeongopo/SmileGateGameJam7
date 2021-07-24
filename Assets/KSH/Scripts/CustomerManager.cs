@@ -46,7 +46,7 @@ public class CustomerManager : MonoBehaviour
             onList.Add(findCustomer);
             offList.Remove(findCustomer);
             findCustomer.gameObject.SetActive(true);
-            FindObjectOfType<OrderUIManager>().setStart(findCustomer.gameObject);
+            FindObjectOfType<OrderUIManager>().setStart(findCustomer);
         }
     }
 

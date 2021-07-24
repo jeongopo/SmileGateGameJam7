@@ -53,9 +53,9 @@ MonoBehaviour:
   - {fileID: 6389759199693285626, guid: cf11c4dcc195452408506e009e52203c, type: 3}
   - {fileID: 3529320854184700587, guid: a349350740f8a3449ba11964d646edc7, type: 3}
   customerPositionList:
-  - {x: -6, y: 2.5}
-  - {x: 0, y: 2.5}
-  - {x: 6, y: 2.5}
+  - {x: -4, y: 2.5}
+  - {x: 0.5, y: 2.5}
+  - {x: 5, y: 2.5}
   OnPoolingParent: {fileID: 5995915572289916465}
   OffPoolingParent: {fileID: 5995915571405118356}
 --- !u!114 &5995915570589886020

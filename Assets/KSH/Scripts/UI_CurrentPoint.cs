@@ -9,6 +9,6 @@ public class UI_CurrentPoint : MonoBehaviour
 
     void Update()
     {
-        text.text = DataManager.instance.clearPoint.ToString();
+        text.text = DataManager.instance.currentStagePoint.ToString();
     }
 }
