@@ -12,6 +12,7 @@ public class Scememanager : MonoBehaviour
 
     public void Title_Scene()
     {
+        FindObjectOfType<CustomerManager>().ResetStage();
         SceneManager.LoadScene(0);
         GameManagerScript.instance.StopStage();
     }
@@ -36,5 +37,10 @@ public class Scememanager : MonoBehaviour
         Stage_Scene(3);
     }
 
+    public void End_Game()
+    {
+        Application.Quit();
+
+    }
     
 }
