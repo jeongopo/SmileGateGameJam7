@@ -10214,6 +10214,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a14c00656724cfa4ea3e8193fb21e09c, type: 3}
+    - target: {fileID: 3117184088634756131, guid: 9ba8c0de5e3be13428ea0f5ebc8890ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3117184088774494270, guid: 9ba8c0de5e3be13428ea0f5ebc8890ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button_Sub_Ingredient_UnSelect
+      objectReference: {fileID: 0}
     - target: {fileID: 3117184088774494271, guid: 9ba8c0de5e3be13428ea0f5ebc8890ef, type: 3}
       propertyPath: m_Type
       value: 0
@@ -10222,6 +10230,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: a14c00656724cfa4ea3e8193fb21e09c, type: 3}
+    - target: {fileID: 3117184088788117428, guid: 9ba8c0de5e3be13428ea0f5ebc8890ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button_Sub_Ingredient_UnSelect
+      objectReference: {fileID: 0}
     - target: {fileID: 3117184088788117429, guid: 9ba8c0de5e3be13428ea0f5ebc8890ef, type: 3}
       propertyPath: m_Type
       value: 0
@@ -10334,6 +10346,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c8d05ddd6d097004fae61ff31822f5c3, type: 3}
+    - target: {fileID: 3117184089386860270, guid: 9ba8c0de5e3be13428ea0f5ebc8890ef, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Button_Sub_Ingredient_UnSelect
+      objectReference: {fileID: 0}
     - target: {fileID: 3117184089386860271, guid: 9ba8c0de5e3be13428ea0f5ebc8890ef, type: 3}
       propertyPath: m_Type
       value: 0

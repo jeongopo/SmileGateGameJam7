@@ -67,7 +67,7 @@ public class Select_ingredient : MonoBehaviour
     }
 
     //주재료 제거
-    public void Main_Ingredient_UnSelect(bool isCreat)
+    public void Main_Ingredient_UnSelect(bool isCreat = false)
     {
         if (F_Main_Food == null)
             return;
@@ -118,6 +118,22 @@ public class Select_ingredient : MonoBehaviour
         Change_Alpha(B_Sub_Ingredient[num], 0);
 
         if (num+1 != SubFood_Count)//중간 재료를 선택했을 경우
+            Swap_sub(num);
+        SubFood_Count--;
+
+
+    }
+
+    public void Button_Sub_Ingredient_UnSelect(int num)
+    {
+        if (F_Sub_Food[num] == null)
+            return;
+
+        DataManager.instance.UsePoint(F_Sub_Food[num].Price);
+        F_Sub_Food[num] = null;
+        Change_Alpha(B_Sub_Ingredient[num], 0);
+
+        if (num + 1 != SubFood_Count)//중간 재료를 선택했을 경우
             Swap_sub(num);
         SubFood_Count--;
 
