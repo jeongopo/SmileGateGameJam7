@@ -31,15 +31,15 @@ public class RecipeBook : MonoBehaviour
     }
 
     public void settwostar(){
-        //if(stagenum>=2){
+        if(stagenum>=2){
             scrollview.setrecipe_twostar();
             setSelectolorbtn(2);
             setNormalolorbtn(1);
             setNormalolorbtn(3);
             text.text="2등급 레시피".ToString();
-        //}else {
-        //    Debug.Log("클리어 레벨이 낮아 열 수 없음");
-        //}
+        }else {
+           Debug.Log("클리어 레벨이 낮아 열 수 없음");
+        }
     }
 
     public void setthreestar(){

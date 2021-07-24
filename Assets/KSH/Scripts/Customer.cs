@@ -107,9 +107,9 @@ public class Customer : MonoBehaviour
         isOrder = false;
         if(!_timerOver)
         {
-            spriteRenderer.material = shakeMaterials[0];
             DataManager.instance.AcheiveStagePoint(StagePointLits, Order_Timer, Timer);
             SoundManager.instance.PlaySoundEffect("Coin");
+            spriteRenderer.material = shakeMaterials[0];
             animator.SetTrigger("OrderSuccessTrigger");
             Invoke("FactionCustomer", 0.8f);
         }
