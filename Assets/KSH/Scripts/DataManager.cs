@@ -200,19 +200,20 @@ public class DataManager : MonoBehaviour
 
     void GameOver()
     {
-        ResetStage();
         //결과창 띄워주기
+        //ResetStage();
     }
 
     public void MinusHP()
     {
-        hp--;
+        hp -= 1;
+        Debug.Log("hp 마이너스");
         if(hp <= 0)
         {
             GameOver();
         }
     }
-    
+
     public void AcheiveStagePoint(List<int> _OrderSuccessPoint, float _orderTimer, float _customerTimer) //점수 흭득시 콜백함수
     {
         float addTmp = 0;
@@ -237,7 +238,7 @@ public class DataManager : MonoBehaviour
     public void ResetStage() //스테이지 종료시 콜백함수
     {
         isStagePlaying = false;
-        currentStagePoint = 0;
+        currentStagePoint = defaultPoint;
         hp = fullHp;
     }
 
@@ -295,11 +296,4 @@ public class DataManager : MonoBehaviour
     {
         currentStagePoint += _Point;
     }
-
-    public void SetStartStage()
-    {
-        hp = fullHp;
-        currentStagePoint = defaultPoint;
-    }
-
 }

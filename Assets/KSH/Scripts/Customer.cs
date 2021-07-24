@@ -112,21 +112,28 @@ public class Customer : MonoBehaviour
             spriteRenderer.material = shakeMaterials[0];
             DataManager.instance.AcheiveStagePoint(StagePointLits, Order_Timer, Timer);
             animator.SetTrigger("OrderSuccessTrigger");
-            Invoke("DissatisfactionCustomer", 0.8f);
+            Invoke("FactionCustomer", 0.8f);
         }
         else 
         {
-            DataManager.instance.MinusHP();
             animator.SetTrigger("OrderFailTrigger");
             Invoke("DissatisfactionCustomer", 0.8f);
         }
 
     }
 
-    void DissatisfactionCustomer()
+    void FactionCustomer()
     {
         CustomerManager.instance.SetOffPooling(this);
         CustomerReset();
+    }
+
+    void DissatisfactionCustomer()
+    {
+        DataManager.instance.MinusHP();
+        CustomerManager.instance.SetOffPooling(this);
+        CustomerReset();
+        CancelInvoke();
     }
 
     public void ReceiveDrink(Food _Drink) //음료 주기

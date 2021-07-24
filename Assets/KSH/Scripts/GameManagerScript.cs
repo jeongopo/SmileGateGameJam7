@@ -28,7 +28,7 @@ public class GameManagerScript : MonoBehaviour
 
     void StageStart()
     {
-        DataManager.instance.SetStartStage();
+        DataManager.instance.ResetStage();
     }
 
     public void SapwnStageCustomer()
