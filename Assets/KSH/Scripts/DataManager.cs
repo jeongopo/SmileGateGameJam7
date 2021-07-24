@@ -13,7 +13,7 @@ public class DataManager : MonoBehaviour
     public Dictionary<int, List<int>> successPoint; //손님의 주문을 성공적으로 수행했을때 보상
     public Dictionary<int, List<int>> DrinkNumberPercentage; //갯수
     public Dictionary<int, List<int>> DrinkRankPercentage; //등급
-    public Dictionary<string, List<int>> IngredientsPrice; //재료 가격
+    public Dictionary<string, int> IngredientsPrice; //재료 가격
     public List<string> Drink_1 = new List<string>();//1등급 음료들
     public List<string> Drink_2 = new List<string>();//2등급 음료들
     public List<string> Drink_3 = new List<string>();//3등급 음료들
@@ -159,6 +159,7 @@ public class DataManager : MonoBehaviour
         //todo//
         DrinkNumberPercentage = ReadSuccessPointFile("DrinkNumberPercentage.csv");
         DrinkRankPercentage = ReadSuccessPointFile("DrinkRankPercentage.csv");
+        IngredientsPrice = ReadIngredientsPriceFile("IngredientsPrice.csv");
         Drink_1 = ReadStringFile("Drink_1.csv");
         Drink_2 = ReadStringFile("Drink_2.csv");
         Drink_3 = ReadStringFile("Drink_3.csv");
@@ -173,6 +174,7 @@ public class DataManager : MonoBehaviour
             instance = this;
         }
 
+        DontDestroyOnLoad(gameObject);
     }
 
     public int ChangeStage(int _stageNumber) //스테이지를 변경할 때 호출해야 하는 함수 (변경된 스테이지 번호를 return)
@@ -191,9 +193,24 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void AcheiveStagePoint(int _OrderSuccessCount) //점수 흭득시 콜백함수
+    public void AcheiveStagePoint(List<int> _OrderSuccessPoint, float _orderTimer, float _customerTimer) //점수 흭득시 콜백함수
     {
-        currentStagePoint += _OrderSuccessCount;
+        float addTmp = 0;
+        float timerMultiple;
+        if(_customerTimer / _orderTimer >= 0.3) //*2
+        {
+            timerMultiple = 2;
+        }
+        else 
+        {
+            timerMultiple = 0.8f;
+        }
+
+        for (int i = 0; i < _OrderSuccessPoint.Count; i++)
+        {
+            addTmp += (float)_OrderSuccessPoint[i] * timerMultiple;
+        }
+        currentStagePoint += (int)addTmp;
         CheckStageClear();
     }
 
