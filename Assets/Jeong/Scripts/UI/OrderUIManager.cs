@@ -15,7 +15,6 @@ public class OrderUIManager : MonoBehaviour
     
     public void setStart(GameObject tmp){ //customer가 on될때, slot을 on하는 함수
         int num=tmp.GetComponent<Customer>().positionNumber;
-        Debug.Log(tmp.name);
         //Debug.Log(tmp.name+" 손님 입장 위치 : "+num);
         shapes[num].SetActive(true);
         shapes[num].GetComponent<OrderUI>().customer=tmp;
@@ -30,6 +29,10 @@ public class OrderUIManager : MonoBehaviour
         for(int i=0;i<3;i++){
             shapes[i].SetActive(false);
         }
+    }
+
+    public void recivefood(int num,int slot){ //num번째 손님의 slot을 서빙함
+        shapes[num].GetComponent<OrderUI>().orderfinish(slot);
     }
 
 }

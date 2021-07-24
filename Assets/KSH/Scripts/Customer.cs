@@ -78,8 +78,9 @@ public class Customer : MonoBehaviour
                     addTmp += _ReceivedDrink.Ingredients[j].Price;
                 }
                 StagePointLits.Add(addTmp * 3);
+                FindObjectOfType<OrderUIManager>().recivefood(positionNumber,i);
                 if (OrderSuccessCount >= OrderDrink.Count)
-                    OrderOver(false);
+                    OrderOver(false);    
                 break;
             }
             else 
