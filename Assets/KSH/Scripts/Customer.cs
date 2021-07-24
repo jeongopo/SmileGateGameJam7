@@ -114,6 +114,7 @@ public class Customer : MonoBehaviour
         }
         else 
         {
+            DataManager.instance.MinusHP();
             animator.SetTrigger("OrderFailTrigger");
             Invoke("DissatisfactionCustomer", 0.8f);
         }

@@ -22,6 +22,8 @@ public class DataManager : MonoBehaviour
     public int currentStageNumber;
     public int currentStagePoint;
     public bool isStagePlaying = false;
+    public int fullHp;
+    public int hp;
 
     Dictionary<int, int> ReadIntIntFile(string file)
     {
@@ -133,6 +135,7 @@ public class DataManager : MonoBehaviour
         return tmp;
     }
 
+
     List<string> ReadStringFile(string file)
     {
         List<string> tmp = new List<string>();
@@ -176,6 +179,7 @@ public class DataManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
     public int ChangeStage(int _stageNumber) //스테이지를 변경할 때 호출해야 하는 함수 (변경된 스테이지 번호를 return)
     {
         currentStageNumber = _stageNumber;
@@ -194,6 +198,21 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    void GameOver()
+    {
+        ResetStage();
+        //결과창 띄워주기
+    }
+
+    public void MinusHP()
+    {
+        hp--;
+        if(hp <= 0)
+        {
+            GameOver();
+        }
+    }
+    
     public void AcheiveStagePoint(List<int> _OrderSuccessPoint, float _orderTimer, float _customerTimer) //점수 흭득시 콜백함수
     {
         float addTmp = 0;
@@ -219,6 +238,7 @@ public class DataManager : MonoBehaviour
     {
         isStagePlaying = false;
         currentStagePoint = 0;
+        hp = fullHp;
     }
 
     public float GetCustomerTimer(int _orderCount) //손님 제한시간 생성
@@ -278,6 +298,8 @@ public class DataManager : MonoBehaviour
 
     public void SetStartStage()
     {
+        hp = fullHp;
         currentStagePoint = defaultPoint;
     }
+
 }

@@ -64,6 +64,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e6c07bb184613c04ca3a59344e8c053d, type: 2}
   - {fileID: 11400000, guid: 175c17f1418d45942a0399d67c546216, type: 2}
   - {fileID: 11400000, guid: aaaba5f7eb62fe747b88e6b067046ad9, type: 2}
+  Making_Drink: {fileID: 0}
 --- !u!1 &1379854980
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,7 +2074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6114527684092485289}
-  - component: {fileID: 8386940358522319511}
+  - component: {fileID: 2540795447189665795}
   m_Layer: 0
   m_Name: heart
   m_TagString: Untagged
@@ -2103,7 +2104,7 @@ RectTransform:
   m_AnchoredPosition: {x: 31, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8386940358522319511
+--- !u!114 &2540795447189665795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2112,13 +2113,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2105254045863242601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 506d3ac46a8e8874ba33cc6d51e110c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 42e47e673c6675545a3179dc4c816f7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hearts:
-  - {fileID: 8871750103092247274}
-  - {fileID: 6750850656221734308}
-  - {fileID: 1842091223028237558}
+  images:
+  - {fileID: 2435842310185282152}
+  - {fileID: 7283252884565206168}
+  - {fileID: 7580630791449712611}
 --- !u!1 &2190459798499105002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2910,6 +2911,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4468510502517457154}
+  - component: {fileID: 3276303624862808439}
   m_Layer: 0
   m_Name: money
   m_TagString: Untagged
@@ -2938,6 +2940,19 @@ RectTransform:
   m_AnchoredPosition: {x: 635, y: 392}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3276303624862808439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2916031048687501511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98fa4988a157cb45813eea4881465d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 8018084484477135977}
 --- !u!1 &3072547309702489897
 GameObject:
   m_ObjectHideFlags: 0
@@ -6395,6 +6410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1542040827169123543}
+  - component: {fileID: 4652508084835724159}
   m_Layer: 0
   m_Name: targetmoney
   m_TagString: Untagged
@@ -6424,6 +6440,19 @@ RectTransform:
   m_AnchoredPosition: {x: 830, y: 277}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4652508084835724159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6455888534456350009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2c534fc79d91924a982f9440fd9ecdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 845061712106980615}
 --- !u!1 &6647786129492158666
 GameObject:
   m_ObjectHideFlags: 0
@@ -8500,6 +8529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Food_image: {fileID: 2621593136659891562}
+  Making_Drink: {fileID: 0}
 --- !u!114 &5930800431455555964
 MonoBehaviour:
   m_ObjectHideFlags: 0

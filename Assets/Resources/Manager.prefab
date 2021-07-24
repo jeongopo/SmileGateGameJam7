@@ -79,6 +79,8 @@ MonoBehaviour:
   currentStageNumber: 1
   currentStagePoint: 0
   isStagePlaying: 0
+  fullHp: 3
+  hp: 3
 --- !u!114 &5995915570589886073
 MonoBehaviour:
   m_ObjectHideFlags: 0
