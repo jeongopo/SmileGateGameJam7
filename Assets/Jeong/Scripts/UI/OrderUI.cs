@@ -19,7 +19,7 @@ public class OrderUI : MonoBehaviour
             slots[i].gameObject.SetActive(true);
         }
 
-        for(int i=1;i<slots.Length;i++){
+        for(int i=0;i<slots.Length;i++){
                 if(i>=customer.GetComponent<Customer>().OrderDrink.Count)
                 //주문 개수가 3개보다 적은 경우
                 slots[i].gameObject.SetActive(false);

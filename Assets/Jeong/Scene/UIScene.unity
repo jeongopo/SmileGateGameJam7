@@ -8575,8 +8575,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shapes:
   - {fileID: 1547507213}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 977313858}
+  - {fileID: 768562071}
 --- !u!1 &1827997064
 GameObject:
   m_ObjectHideFlags: 0
