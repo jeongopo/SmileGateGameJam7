@@ -15,7 +15,7 @@ MonoBehaviour:
   FoodName: "\uBE44\uD0A4\uB2C8 \uB3D9\uC0B0 \uB300\uCD95\uC81C"
   FoodInfo: 
   foodtype: 0
-  FoodSprite: {fileID: 0}
+  FoodSprite: {fileID: 21300000, guid: c8c2d1cef1a4f6a46ba645683496f261, type: 3}
   Price: 0
   Ingredients:
   - {fileID: 11400000, guid: 320a411b98416124cae9872793781cde, type: 2}
