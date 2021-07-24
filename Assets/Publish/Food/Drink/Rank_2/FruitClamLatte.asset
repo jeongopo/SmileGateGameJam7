@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79001fdc773a4d24badbc59b07e1e66c, type: 3}
   m_Name: FruitClamLatte
   m_EditorClassIdentifier: 
-  FoodName: "\uC0DD\uACFC\uC77C \uC870\uAC1C\uB77C\uB5BC"
-  FoodInfo: 
+  FoodName: FruitClamLatte
+  FoodInfo: "\uC0DD\uACFC\uC77C \uC870\uAC1C\uB77C\uB5BC"
   foodtype: 0
   FoodSprite: {fileID: 0}
+  Price: 0
   Ingredients:
   - {fileID: 11400000, guid: fdd9ac2ebc84dff46801dbdb56a8cb9a, type: 2}
   - {fileID: 11400000, guid: 2c3b1b9735810a34aa6851535eabd143, type: 2}
