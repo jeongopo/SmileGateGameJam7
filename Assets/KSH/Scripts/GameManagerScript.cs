@@ -6,6 +6,7 @@ public class GameManagerScript : MonoBehaviour
 {
     public static GameManagerScript instance;
 
+    public int StartDelay;
     public int customerSapwnDelay;
 
     private void Awake()
@@ -17,7 +18,7 @@ public class GameManagerScript : MonoBehaviour
     public void GameStart()
     {
         StageStart();
-        InvokeRepeating("SapwnStageCustomer", customerSapwnDelay, customerSapwnDelay);
+        InvokeRepeating("SapwnStageCustomer", StartDelay, customerSapwnDelay);
     }
 
     public void StopStage()

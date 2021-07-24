@@ -95,7 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a42958a501b4d4f93020812ef95f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customerSapwnDelay: 3
+  StartDelay: 5
+  customerSapwnDelay: 5
 --- !u!1 &5995915571405118357
 GameObject:
   m_ObjectHideFlags: 0
