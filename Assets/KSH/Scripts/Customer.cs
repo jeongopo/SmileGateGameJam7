@@ -85,11 +85,9 @@ public class Customer : MonoBehaviour
                     OrderOver(false);    
                 break;
             }
-            else 
-            {
-                //todo 실패애니메이션 재생
-                animator.SetTrigger("OrderFailTrigger");
-            }
+
+            //todo 실패애니메이션 재생
+            animator.SetTrigger("OrderFailTrigger");
         }
        
     }
