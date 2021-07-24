@@ -9,6 +9,6 @@ public class UI_ClearPoint : MonoBehaviour
 
     void Update()
     {
-        text.text = DataManager.instance.clearPoint[DataManager.instance.currentStageNumber].ToString();
+        text.text = DataManager.instance.clearPoint[DataManager.instance.currentStageNumber - 1].ToString();
     }
 }
