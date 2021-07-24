@@ -23,5 +23,18 @@ public class Scememanager : MonoBehaviour
         GameManagerScript.instance.GameStart();
     }
 
+    public void Easy_Stage()
+    {
+        Stage_Scene(1);
+    }
+    public void Normal_Stage()
+    {
+        Stage_Scene(2);
+    }
+    public void Hard_Stage()
+    {
+        Stage_Scene(3);
+    }
+
     
 }
