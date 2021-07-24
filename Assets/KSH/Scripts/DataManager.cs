@@ -189,11 +189,12 @@ public class DataManager : MonoBehaviour
 
     void CheckStageClear() //점수 흭득시마다 클리어 확인
     {
-        if(currentStagePoint.Equals(clearPoint[currentStageNumber]))
+        if(currentStagePoint.Equals(clearPoint[currentStageNumber - 1]))
         {
             //todo..
-            StageClear();
+            Debug.Log("Clear");
             GameManagerScript.instance.StopStage();
+            StageClear();
             ResetStage();
             //결과창 띄워주기
         }
