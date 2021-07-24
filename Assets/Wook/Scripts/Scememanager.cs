@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Scememanager : MonoBehaviour
 {
+    [SerializeField] Drink drink;
     
     public void Chage_Scene(int _number)
     {
@@ -19,6 +20,8 @@ public class Scememanager : MonoBehaviour
 
     public void Stage_Scene(int _stageNumber)
     {
+        if (drink != null)
+            drink.DrinkReset();
         DataManager.instance.currentStageNumber = _stageNumber;
         SceneManager.LoadScene(1);
         GameManagerScript.instance.GameStart();

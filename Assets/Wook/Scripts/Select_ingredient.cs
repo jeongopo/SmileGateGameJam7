@@ -51,6 +51,8 @@ public class Select_ingredient : MonoBehaviour
     //주재료 선택
     public void Main_Ingredient_Select(Food food)
     {
+        if (Drink.IsCreatFood)
+            return;
         if (food.foodtype != FoodType.Ingredients_Main)
             return;
         if (F_Main_Food != null)
@@ -80,6 +82,8 @@ public class Select_ingredient : MonoBehaviour
     //부재료 선택
     public void Sub_Ingredient_Select(Food food)
     {
+        if (Drink.IsCreatFood)
+            return;
         if (food.foodtype != FoodType.Ingredients_Sub)
             return;
         if (SubFood_Count >= currentStageNumber) //개수 체크

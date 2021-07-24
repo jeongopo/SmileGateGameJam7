@@ -42,7 +42,13 @@ public class Drink : MonoBehaviour
         IsCreatFood = true;
     }
 
-
+    public void DrinkReset()
+    {
+        IsCreatFood = false;
+        Cursor.visible = true;
+        color.a = 0;
+        Food_image.color = color;
+    }
     private void Update()
     {
         if (!IsCreatFood)
@@ -73,14 +79,16 @@ public class Drink : MonoBehaviour
 
         if (hit.transform.tag == "Customer")
         {
-            Customer customer = hit.transform.GetComponent<Customer>(); 
-            customer.ReceiveDrink(CreatFood);
-            IsCreatFood = false;
-            CreatFood = null;
+            Customer customer = hit.transform.GetComponent<Customer>();
             color.a = 0;
             Food_image.color = color;
             Cursor.visible = true;
+            customer.ReceiveDrink(CreatFood);
+            IsCreatFood = false;
+            CreatFood = null;
+
             Making_Drink.SetActive(true);
+
         }
 
         //RaycastHit hitInfo;
