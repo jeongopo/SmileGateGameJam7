@@ -26,10 +26,28 @@ public class DataManager : MonoBehaviour
     public int fullHp;
     public int hp;
 
+    Dictionary<int, int> Read(string file)
+    {
+        var list = new Dictionary<int, int>();
+        TextAsset sourcefile = Resources.Load<TextAsset>("stage");
+        StringReader sr = new StringReader(sourcefile.text);
+
+        while (sr.Peek() > -1)
+        {
+            string data_String = sr.ReadLine();
+
+            string[] data_values = data_String.Split(',');
+            list.Add((int)data_String[0], (int)data_String[1] );
+        }
+
+        return list;
+    }
+
     Dictionary<int, int> ReadIntIntFile(string file)
     {
         Dictionary<int,int> tmp = new Dictionary<int, int>();
-        StreamReader sr = new StreamReader(Application.dataPath + "/" + file);
+        TextAsset sourcefile = Resources.Load<TextAsset>(file);
+        StringReader sr = new StringReader(sourcefile.text);
 
         bool endOfFile = false;
         while (!endOfFile)
@@ -49,7 +67,8 @@ public class DataManager : MonoBehaviour
     Dictionary<string, string> ReadStringStringFile(string file)
     {
         Dictionary<string,string> tmp = new Dictionary<string, string>();
-        StreamReader sr = new StreamReader(Application.dataPath + "/" + file);
+        TextAsset sourcefile = Resources.Load<TextAsset>(file);
+        StringReader sr = new StringReader(sourcefile.text);
 
         bool endOfFile = false;
         while (!endOfFile)
@@ -69,12 +88,15 @@ public class DataManager : MonoBehaviour
     Dictionary<int, List<int>> ReadSuccessPointFile(string file)
     {
         Dictionary<int, List<int>> tmp = new Dictionary<int, List<int>>();
-        StreamReader sr = new StreamReader(Application.dataPath + "/" + file);
+        TextAsset sourcefile = Resources.Load<TextAsset>(file);
+        StringReader sr = new StringReader(sourcefile.text);
+        //StreamReader sr = new StreamReader(Application.dataPath + "/" + file);
 
         bool endOfFile = false;
         while (!endOfFile)
         {
             string data_String = sr.ReadLine();
+            Debug.Log(Application.dataPath + "/" + file);
             if (data_String == null)
             {
                 endOfFile = true;
@@ -94,7 +116,8 @@ public class DataManager : MonoBehaviour
     Dictionary<int, List<string>> ReadDrinkFile(string file)
     {
         Dictionary<int, List<string>> tmp = new Dictionary<int, List<string>>();
-        StreamReader sr = new StreamReader(Application.dataPath + "/" + file);
+        TextAsset sourcefile = Resources.Load<TextAsset>(file);
+        StringReader sr = new StringReader(sourcefile.text);
 
         bool endOfFile = false;
         while (!endOfFile)
@@ -119,7 +142,8 @@ public class DataManager : MonoBehaviour
     Dictionary<string, int> ReadIngredientsPriceFile(string file)
     {
         Dictionary<string, int> tmp = new Dictionary<string, int>();
-        StreamReader sr = new StreamReader(Application.dataPath + "/" + file);
+        TextAsset sourcefile = Resources.Load<TextAsset>(file);
+        StringReader sr = new StringReader(sourcefile.text);
 
         bool endOfFile = false;
         while (!endOfFile)
@@ -140,7 +164,8 @@ public class DataManager : MonoBehaviour
     List<string> ReadStringFile(string file)
     {
         List<string> tmp = new List<string>();
-        StreamReader sr = new StreamReader(Application.dataPath + "/" + file);
+        TextAsset sourcefile = Resources.Load<TextAsset>(file);
+        StringReader sr = new StringReader(sourcefile.text);
 
         bool endOfFile = false;
         while (!endOfFile)
@@ -161,12 +186,12 @@ public class DataManager : MonoBehaviour
     void DataSetting()
     {
         //todo//
-        DrinkNumberPercentage = ReadSuccessPointFile("DrinkNumberPercentage.csv");
-        DrinkRankPercentage = ReadSuccessPointFile("DrinkRankPercentage.csv");
-        IngredientsPrice = ReadIngredientsPriceFile("IngredientsPrice.csv");
-        Drink_1 = ReadStringFile("Drink_1.csv");
-        Drink_2 = ReadStringFile("Drink_2.csv");
-        Drink_3 = ReadStringFile("Drink_3.csv");
+        DrinkNumberPercentage = ReadSuccessPointFile("DrinkNumberPercentage");
+        DrinkRankPercentage = ReadSuccessPointFile("DrinkRankPercentage");
+        IngredientsPrice = ReadIngredientsPriceFile("IngredientsPrice");
+        Drink_1 = ReadStringFile("Drink_1");
+        Drink_2 = ReadStringFile("Drink_2");
+        Drink_3 = ReadStringFile("Drink_3");
     }
 
     private void Awake() 
