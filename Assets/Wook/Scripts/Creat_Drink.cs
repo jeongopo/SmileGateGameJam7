@@ -96,7 +96,7 @@ public class Creat_Drink : MonoBehaviour
                         if (!have_Ingredients)
                             break;
                         CreatFood = Rank2_Drink[i];
-
+                        return true;
                     }
                 }
 
@@ -144,7 +144,7 @@ public class Creat_Drink : MonoBehaviour
                         if (!have_Ingredients)
                             break;
                         CreatFood = Rank3_Drink[i];
-
+                        return true;
                     }
                 }
                 break;

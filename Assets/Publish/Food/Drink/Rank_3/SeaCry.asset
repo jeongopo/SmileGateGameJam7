@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79001fdc773a4d24badbc59b07e1e66c, type: 3}
   m_Name: SeaCry
   m_EditorClassIdentifier: 
-  FoodName: "\uBC14\uB2E4\uC758 \uC624\uC5F4"
-  FoodInfo: 
+  FoodName: SeaCry
+  FoodInfo: "\uBC14\uB2E4\uC758 \uC624\uC5F4"
   foodtype: 0
   FoodSprite: {fileID: 0}
+  Price: 0
   Ingredients:
   - {fileID: 11400000, guid: e2046a63cd72fe244bea6c14aeaeffea, type: 2}
   - {fileID: 11400000, guid: 71480e094f3f57446a04ff66a8deb4e3, type: 2}

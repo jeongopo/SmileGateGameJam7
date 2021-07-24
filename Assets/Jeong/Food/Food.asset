@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 79001fdc773a4d24badbc59b07e1e66c, type: 3}
-  m_Name: SeaweedTea
+  m_Name: Food
   m_EditorClassIdentifier: 
-  FoodName: SeaweedTea
-  FoodInfo: "\uD574\uCD08\uD2F0"
+  FoodName: "\uC544\uBA54\uB9AC\uCE74\uB178\uC88B\uC544\uC88B\uC544"
+  FoodInfo: 
   foodtype: 0
-  FoodSprite: {fileID: 21300000, guid: 56b7dfaa7591ced4c9c6986e1438a806, type: 3}
-  Price: 0
+  FoodSprite: {fileID: 21300000, guid: 4516a2311d3f4b14c96690f7dce0ffea, type: 3}
   Ingredients:
-  - {fileID: 11400000, guid: 3343ef1ea4ea1f14ca9b5c0ce3512530, type: 2}
-  - {fileID: 11400000, guid: 67e8b22d39e228a4d857470d9f8b12ba, type: 2}
+  - {fileID: 11400000, guid: 9841e395e74038a49ae36ce1101fed12, type: 2}
+  - {fileID: 11400000, guid: f9fb92a14e032644399411d83e331244, type: 2}

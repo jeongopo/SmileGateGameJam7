@@ -15,5 +15,5 @@ MonoBehaviour:
   FoodName: IGD3
   FoodInfo: 
   foodtype: 1
-  FoodSprite: {fileID: 21300000, guid: 95004328aff6d55499cca627eafce67d, type: 3}
+  FoodSprite: {fileID: 21300000, guid: 3ae17ec27381d664b8beec85a48ce354, type: 3}
   Ingredients: []

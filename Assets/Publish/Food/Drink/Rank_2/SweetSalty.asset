@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79001fdc773a4d24badbc59b07e1e66c, type: 3}
   m_Name: SweetSalty
   m_EditorClassIdentifier: 
-  FoodName: "\uB2E8\uC9E0\uC758 \uC815\uC11D"
-  FoodInfo: 
+  FoodName: SweetSalty
+  FoodInfo: "\uB2E8\uC9E0\uC758 \uC815\uC11D"
   foodtype: 0
   FoodSprite: {fileID: 0}
+  Price: 0
   Ingredients:
   - {fileID: 11400000, guid: e2046a63cd72fe244bea6c14aeaeffea, type: 2}
   - {fileID: 11400000, guid: 337b50c6354c5874998b7b34dfed5117, type: 2}

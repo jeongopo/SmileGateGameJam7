@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79001fdc773a4d24badbc59b07e1e66c, type: 3}
   m_Name: MilkSeastle
   m_EditorClassIdentifier: 
-  FoodName: "\uBC00\uD06CSea\uC2AC"
-  FoodInfo: 
+  FoodName: MilkSeastle
+  FoodInfo: "\uBC00\uD06CSea\uC2AC"
   foodtype: 0
   FoodSprite: {fileID: 21300000, guid: ab357c25e530ec442b84ea63174b82de, type: 3}
   Price: 0
