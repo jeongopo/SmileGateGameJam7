@@ -65,6 +65,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 175c17f1418d45942a0399d67c546216, type: 2}
   - {fileID: 11400000, guid: aaaba5f7eb62fe747b88e6b067046ad9, type: 2}
   Making_Drink: {fileID: 3177987229212519340}
+  BadDrink: {fileID: 11400000, guid: 74491803888573541b84709b69fa87b8, type: 2}
 --- !u!1 &376967728
 GameObject:
   m_ObjectHideFlags: 0

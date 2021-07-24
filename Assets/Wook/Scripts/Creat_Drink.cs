@@ -8,6 +8,7 @@ public class Creat_Drink : MonoBehaviour
     [SerializeField] Food[] Rank2_Drink;
     [SerializeField] Food[] Rank3_Drink;
     [SerializeField]  GameObject Making_Drink;
+    [SerializeField] Food BadDrink;
 
     Food Main_Ingredient;
     Food[] Sub_Ingredient;
@@ -25,6 +26,18 @@ public class Creat_Drink : MonoBehaviour
     {
         Main_Ingredient = main;
         Sub_Ingredient = sub;
+
+        isHave_ingredient = false;
+        if (Main_Ingredient != null)
+        {
+            isHave_ingredient = true;
+            return;
+        }
+        if(Sub_Ingredient[0] != null)
+        {
+            isHave_ingredient = true;
+            return;
+        }
     }
 
     int Recipe_Rank_Check()
@@ -45,7 +58,7 @@ public class Creat_Drink : MonoBehaviour
     }
     bool Recipe_Check()
     {
-        isHave_ingredient = false;
+        //isHave_ingredient = false;
         int Rank = Recipe_Rank_Check();
         bool have_Ingredients = false;
         if (Rank == 0)
@@ -56,10 +69,10 @@ public class Creat_Drink : MonoBehaviour
             case 1:
                 for(int i = 0; i< Rank1_Drink.Length; i++) //음료 종류
                 {
-                    isHave_ingredient = false;
+                    //isHave_ingredient = false;
                     if (Rank1_Drink[i].Ingredients[0] == Main_Ingredient)
                     {//주재료가 맞는지
-                        isHave_ingredient = true;
+                        //isHave_ingredient = true;
                         if (Sub_Ingredient[0] == Rank1_Drink[i].Ingredients[1])
                         {//부재료가 맞는지
                             CreatFood = Rank1_Drink[i];
@@ -72,10 +85,10 @@ public class Creat_Drink : MonoBehaviour
             case 2:
                 for (int i = 0; i < Rank2_Drink.Length; i++) //음료 종류
                 {
-                    isHave_ingredient = false;
+                    //isHave_ingredient = false;
                     if (Rank2_Drink[i].Ingredients[0] == Main_Ingredient)
                     {//주재료가 맞는지
-                        isHave_ingredient = true;
+                        //isHave_ingredient = true;
                         have_Ingredients = false;
                         for (int sub = 0; sub <2; sub++)
                         {
@@ -110,10 +123,10 @@ public class Creat_Drink : MonoBehaviour
             case 3:
                 for (int i = 0; i < Rank3_Drink.Length; i++) //음료 종류
                 {
-                    isHave_ingredient = false;
+                    //isHave_ingredient = false;
                     if (Rank3_Drink[i].Ingredients[0] == Main_Ingredient)
                     {//주재료가 맞는지
-                        isHave_ingredient = true;
+                        //isHave_ingredient = true;
                         have_Ingredients = false;
                         for (int sub = 0; sub < 3; sub++)
                         {
@@ -163,16 +176,21 @@ public class Creat_Drink : MonoBehaviour
 
     public void Creat()
     {
-        CreatFood = null;
+        CreatFood = BadDrink;
         Set_Ingredient(select_ingredient.Return_Main(), select_ingredient.Return_Sub());
         Recipe_Check();
         select_ingredient.Select_ingredient_Reset();
 
-        drink.GetFood(CreatFood);
+        
         if (isHave_ingredient)
         {
+            drink.GetFood(CreatFood);
             Making_Drink.SetActive(false);
             SoundManager.instance.PlaySoundEffect("Make");
+        }
+        else
+        {
+            CreatFood = null;
         }
             
         if (CreatFood != null)

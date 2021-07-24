@@ -421,10 +421,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2098798005}
         m_TargetAssemblyTypeName: Scememanager, Assembly-CSharp
-        m_MethodName: Stage_Scene
-        m_Mode: 3
+        m_MethodName: Hard_Stage
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -896,10 +896,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2098798005}
         m_TargetAssemblyTypeName: Scememanager, Assembly-CSharp
-        m_MethodName: Stage_Scene
-        m_Mode: 3
+        m_MethodName: Easy_Stage
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1029,10 +1029,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2098798005}
         m_TargetAssemblyTypeName: Scememanager, Assembly-CSharp
-        m_MethodName: Stage_Scene
-        m_Mode: 3
+        m_MethodName: Normal_Stage
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

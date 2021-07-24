@@ -68,12 +68,12 @@ public class Drink : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, transform.forward);
 
-        //if (hit != null || hit.transform.tag != null)
-        //    return;
+        if (hit.collider == null)
+            return;
 
         if (hit.transform.tag == "Customer")
         {
-            Customer customer = hit.transform.GetComponent<Customer>();
+            Customer customer = hit.transform.GetComponent<Customer>(); 
             customer.ReceiveDrink(CreatFood);
             IsCreatFood = false;
             CreatFood = null;
