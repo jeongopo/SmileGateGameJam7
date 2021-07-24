@@ -7,7 +7,7 @@ public class Creat_Drink : MonoBehaviour
     [SerializeField] Food[] Rank1_Drink;
     [SerializeField] Food[] Rank2_Drink;
     [SerializeField] Food[] Rank3_Drink;
-
+    [SerializeField]  GameObject Making_Drink;
 
     Food Main_Ingredient;
     Food[] Sub_Ingredient;
@@ -162,7 +162,7 @@ public class Creat_Drink : MonoBehaviour
         select_ingredient.Select_ingredient_Reset();
 
         drink.GetFood(CreatFood);
-
+        Making_Drink.SetActive(false);
         if (CreatFood != null)
             Debug.Log(CreatFood.FoodName);
         else

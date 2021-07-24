@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class Drink : MonoBehaviour
 {
     [SerializeField] Image Food_image;
+    [SerializeField] GameObject Making_Drink;
+
     Food CreatFood = null;
     public static bool IsCreatFood = false;
 
@@ -66,7 +68,8 @@ public class Drink : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, transform.forward);
 
-        if (hit == null) return;
+        //if (hit != null || hit.transform.tag != null)
+        //    return;
 
         if (hit.transform.tag == "Customer")
         {
