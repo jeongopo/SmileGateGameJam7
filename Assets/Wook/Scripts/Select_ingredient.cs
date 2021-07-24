@@ -67,11 +67,12 @@ public class Select_ingredient : MonoBehaviour
     }
 
     //주재료 제거
-    public void Main_Ingredient_UnSelect()
+    public void Main_Ingredient_UnSelect(bool isCreat)
     {
         if (F_Main_Food == null)
             return;
-        DataManager.instance.UsePoint(F_Main_Food.Price);
+        if(isCreat)
+            DataManager.instance.UsePoint(F_Main_Food.Price);
         F_Main_Food = null;
         Change_Alpha(B_Main_Ingredient, 0);
     }
@@ -107,11 +108,12 @@ public class Select_ingredient : MonoBehaviour
     }
 
     //부재료 제거
-    public void Sub_Ingredient_UnSelect(int num)
+    public void Sub_Ingredient_UnSelect(int num, bool isCreat = false)
     {
         if (F_Sub_Food[num] == null)
             return;
-        DataManager.instance.UsePoint(F_Sub_Food[num].Price);
+        if(isCreat)
+            DataManager.instance.UsePoint(F_Sub_Food[num].Price);
         F_Sub_Food[num] = null;
         Change_Alpha(B_Sub_Ingredient[num], 0);
 
@@ -181,8 +183,8 @@ public class Select_ingredient : MonoBehaviour
     public void Select_ingredient_Reset()
     {
         int deleteCount = SubFood_Count;
-        Main_Ingredient_UnSelect();
+        Main_Ingredient_UnSelect(false);
         for (int i = 0; i < deleteCount; i++)
-            Sub_Ingredient_UnSelect(0);
+            Sub_Ingredient_UnSelect(0, false);
     }
 }
