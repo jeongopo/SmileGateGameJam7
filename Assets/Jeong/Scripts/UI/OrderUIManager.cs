@@ -18,7 +18,7 @@ public class OrderUIManager : MonoBehaviour
     public void setStart(GameObject tmp){ //customer가 on될때, slot을 on하는 함수
         int num=tmp.GetComponent<Customer>().positionNumber;
         Debug.Log(tmp.name);
-        Debug.Log(tmp.name+" 손님 입장 위치 : "+num);
+        //Debug.Log(tmp.name+" 손님 입장 위치 : "+num);
         shapes[num].SetActive(true);
         shapes[num].GetComponent<OrderUI>().customer=tmp;
         shapes[num].GetComponent<OrderUI>().setimg();
