@@ -24,8 +24,11 @@ public class Select_ingredient : MonoBehaviour
     {
         if (food.foodtype != FoodType.Ingredients_Main)
             return;
-        //if (F_Main_Food == null)
-        //    return;
+        if (F_Main_Food != null)
+        {
+            Debug.Log("주재료는 최대 1개까지만 넣을 수 있습니다.");
+            return;
+        }
 
         F_Main_Food = food;
         Change_button(B_Main_Ingredient, food, 1);
@@ -44,11 +47,18 @@ public class Select_ingredient : MonoBehaviour
         if (food.foodtype != FoodType.Ingredients_Sub)
             return;
         if (SubFood_Count == 3) //개수 체크
+        {
+            Debug.Log("부재료는 최대 3개까지만 넣을 수 있습니다.");
             return;
+        }
+
         for (int i = 0; i < 2; i++) //중복체크
         {
             if (F_Sub_Food[i] == food)
+            {
+                Debug.Log("중복된 재료는 넣을 수 없습니다.");
                 return;
+            }
         }
 
 
@@ -115,5 +125,23 @@ public class Select_ingredient : MonoBehaviour
         else
             button.interactable = true;
 
+    }
+
+    public Food Return_Main()
+    {
+        return F_Main_Food;
+    }
+
+    public Food[] Return_Sub()
+    {
+        return F_Sub_Food;
+    }
+
+    public void Select_ingredient_Reset()
+    {
+        int deleteCount = SubFood_Count;
+        Main_Ingredient_UnSelect();
+        for (int i = 0; i < deleteCount; i++)
+            Sub_Ingredient_UnSelect(0);
     }
 }
