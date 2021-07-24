@@ -85,7 +85,7 @@ public class CustomerManager : MonoBehaviour
             SettingCustomer(tmp);
             tmp.CustomerReset();
         }
-        FindObjectOfType<OrderUIManager>().allinactive();
+        FindObjectOfType<OrderUIManager>()?.allinactive();
     }
 
     public Vector2 RePositioningCustomer(Customer _customer)

@@ -13,9 +13,11 @@ public class Select_ingredient : MonoBehaviour
     [SerializeField] Material Select;
     [SerializeField] Material Idle_Material;
     [SerializeField] Image Making_Image;
+    [SerializeField] Text Error;
+    [SerializeField] GameObject Error_Obj;
     int currentStageNumber;
     int SubFood_Count = 0;
-
+    
     
 
     IEnumerator Change_Material()
@@ -32,6 +34,20 @@ public class Select_ingredient : MonoBehaviour
         currentStageNumber = DataManager.instance.currentStageNumber;
     }
 
+    void Show_ErrorText(string _text)
+    {
+        Error_Obj.SetActive(true);
+        Error.text = _text;
+
+        Invoke("Hide_ErrorText", 0.5f);
+    }
+
+    void Hide_ErrorText()
+    {
+        Error_Obj.SetActive(false);
+    }
+
+
     //주재료 선택
     public void Main_Ingredient_Select(Food food)
     {
@@ -39,7 +55,8 @@ public class Select_ingredient : MonoBehaviour
             return;
         if (F_Main_Food != null)
         {
-            Debug.Log("주재료는 최대 1개까지만 넣을 수 있습니다.");
+            Show_ErrorText("주재료는 최대 1개까지만 넣을 수 있습니다.");
+            //Debug.Log("주재료는 최대 1개까지만 넣을 수 있습니다.");
             return;
         }
 
@@ -66,6 +83,8 @@ public class Select_ingredient : MonoBehaviour
             return;
         if (SubFood_Count >= currentStageNumber) //개수 체크
         {
+            string text = "부재료는 최대 " + currentStageNumber + "개까지만 넣을 수 있습니다.";
+            Show_ErrorText(text);
             Debug.Log("부재료는 최대 " + currentStageNumber + "개까지만 넣을 수 있습니다.");
             return;
         }
@@ -74,7 +93,8 @@ public class Select_ingredient : MonoBehaviour
         {
             if (F_Sub_Food[i] == food)
             {
-                Debug.Log("중복된 재료는 넣을 수 없습니다.");
+                Show_ErrorText("중복된 재료는 넣을 수 없습니다.");
+                //Debug.Log("중복된 재료는 넣을 수 없습니다.");
                 return;
             }
         }
