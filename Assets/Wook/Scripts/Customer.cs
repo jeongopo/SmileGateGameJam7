@@ -100,12 +100,24 @@ public class Customer : MonoBehaviour
         {
             DataManager.instance.AcheiveStagePoint(StagePointLits, Order_Timer, Timer);
             animator.SetTrigger("OrderSuccessTrigger");
+            isOrder = false;
+            CustomerManager.instance.SetOffPooling(this);
+            CustomerReset();
+            GetoutCustomer();
         }
+        else 
+        {
+            animator.SetTrigger("OrderFailTrigger");
+            Invoke("GetoutCustomer", 0.5f);
+        }
+
+    }
+
+    void GetoutCustomer()
+    {
         isOrder = false;
-        //todo 손님제거
         CustomerManager.instance.SetOffPooling(this);
         CustomerReset();
-
     }
 
     public void ReceiveDrink(Food _Drink) //음료 주기
