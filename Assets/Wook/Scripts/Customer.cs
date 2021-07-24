@@ -8,8 +8,8 @@ public class Customer : MonoBehaviour
 
     [SerializeField] float Order_Timer;
     [SerializeField] float Timer;
-    [SerializeField] bool isOrder = false; // �ֹ��� �ߴ��� 
 
+    public  bool isOrder = false; // �ֹ��� �ߴ��� 
     public Animator animator;
     public List<string> ReceivedDrink = new List<string>();
     public int positionNumber;
@@ -22,6 +22,11 @@ public class Customer : MonoBehaviour
     {
         if(isOrder)
             Timer -= Time.deltaTime;
+
+        if(Timer / Order_Timer <= 0.3)
+        {
+            animator.SetTrigger("TimeOverTrigger");
+        }
 
         if(Timer <= 0)
             OrderOver(true);
