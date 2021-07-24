@@ -32,7 +32,10 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
 
     }
-
+    private void Start()
+    {
+        Play_BGM("TitleBGM");
+    }
     public void PlaySoundEffect(string _Sound)
     {
         for(int i =0; i<effectSounds.Length; i++)

@@ -13,7 +13,10 @@ public class Select_ingredient : MonoBehaviour
     [SerializeField] Material Select;
     [SerializeField] Material Idle_Material;
     [SerializeField] Image Making_Image;
+    int currentStageNumber;
     int SubFood_Count = 0;
+
+    
 
     IEnumerator Change_Material()
     {
@@ -26,7 +29,7 @@ public class Select_ingredient : MonoBehaviour
     }
     private void Start()
     {
-
+        currentStageNumber = DataManager.instance.currentStageNumber;
     }
 
     //주재료 선택
@@ -61,9 +64,9 @@ public class Select_ingredient : MonoBehaviour
     {
         if (food.foodtype != FoodType.Ingredients_Sub)
             return;
-        if (SubFood_Count == 3) //개수 체크
+        if (SubFood_Count >= currentStageNumber) //개수 체크
         {
-            Debug.Log("부재료는 최대 3개까지만 넣을 수 있습니다.");
+            Debug.Log("부재료는 최대 " + currentStageNumber + "개까지만 넣을 수 있습니다.");
             return;
         }
 
