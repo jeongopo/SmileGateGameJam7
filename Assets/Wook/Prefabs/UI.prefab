@@ -64,7 +64,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e6c07bb184613c04ca3a59344e8c053d, type: 2}
   - {fileID: 11400000, guid: 175c17f1418d45942a0399d67c546216, type: 2}
   - {fileID: 11400000, guid: aaaba5f7eb62fe747b88e6b067046ad9, type: 2}
-  Making_Drink: {fileID: 3177987229212519340}
 --- !u!1 &1379854980
 GameObject:
   m_ObjectHideFlags: 0
@@ -3060,7 +3059,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2058841747870617836}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -4521,7 +4520,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 6721427365101423227}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -8501,7 +8500,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Food_image: {fileID: 2621593136659891562}
-  Making_Drink: {fileID: 3177987229212519340}
 --- !u!114 &5930800431455555964
 MonoBehaviour:
   m_ObjectHideFlags: 0
