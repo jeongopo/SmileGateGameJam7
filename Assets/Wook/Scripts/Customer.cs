@@ -5,15 +5,17 @@ using UnityEngine;
 public class Customer : MonoBehaviour
 {
     public List<string> OrderDrink = new List<string>();
+    public Material[] shakeMaterials;
 
     [SerializeField] float Order_Timer;
     [SerializeField] float Timer;
 
     public  bool isOrder = false; // �ֹ��� �ߴ��� 
     public Animator animator;
-    public List<string> ReceivedDrink = new List<string>();
     public int positionNumber;
+    public List<string> ReceivedDrink = new List<string>();
     public List<bool> OrderSuccess = new List<bool>();
+    public SpriteRenderer spriteRenderer;
 
     List<int> StagePointLits = new List<int>();
     int OrderSuccessCount = 0;
@@ -25,6 +27,7 @@ public class Customer : MonoBehaviour
 
         if(Timer / Order_Timer <= 0.3)
         {
+            spriteRenderer.material = shakeMaterials[1];
             animator.SetTrigger("TimeOverTrigger");
         }
 
@@ -93,15 +96,18 @@ public class Customer : MonoBehaviour
         OrderSuccess.Clear();
         StagePointLits.Clear();
         OrderSuccessCount = 0;
+        spriteRenderer.material = shakeMaterials[0];
+
     }
 
     void OrderOver(bool _timerOver) //시간종료, 주문완료
     {
+        isOrder = false;
         if(!_timerOver)
         {
+            spriteRenderer.material = shakeMaterials[0];
             DataManager.instance.AcheiveStagePoint(StagePointLits, Order_Timer, Timer);
             animator.SetTrigger("OrderSuccessTrigger");
-            // animator.SetTrigger("OrderSuccessTrigger");
             Invoke("DissatisfactionCustomer", 0.8f);
         }
         else 
@@ -114,14 +120,14 @@ public class Customer : MonoBehaviour
 
     void DissatisfactionCustomer()
     {
-        isOrder = false;
         CustomerManager.instance.SetOffPooling(this);
         CustomerReset();
     }
 
     public void ReceiveDrink(Food _Drink) //음료 주기
     {
-        CheckDrink(_Drink);
+        if(isOrder)
+            CheckDrink(_Drink);
     }
 
     private void Update()
