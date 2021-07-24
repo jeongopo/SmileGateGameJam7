@@ -26,23 +26,6 @@ public class DataManager : MonoBehaviour
     public int fullHp;
     public int hp;
 
-    Dictionary<int, int> Read(string file)
-    {
-        var list = new Dictionary<int, int>();
-        TextAsset sourcefile = Resources.Load<TextAsset>("stage");
-        StringReader sr = new StringReader(sourcefile.text);
-
-        while (sr.Peek() > -1)
-        {
-            string data_String = sr.ReadLine();
-
-            string[] data_values = data_String.Split(',');
-            list.Add((int)data_String[0], (int)data_String[1] );
-        }
-
-        return list;
-    }
-
     Dictionary<int, int> ReadIntIntFile(string file)
     {
         Dictionary<int,int> tmp = new Dictionary<int, int>();
@@ -160,7 +143,6 @@ public class DataManager : MonoBehaviour
         return tmp;
     }
 
-
     List<string> ReadStringFile(string file)
     {
         List<string> tmp = new List<string>();
@@ -227,9 +209,9 @@ public class DataManager : MonoBehaviour
 
     void StageClear()
     {
+        StageClearList[currentStageNumber - 1] = true;
         GameManagerScript.instance.StopStage();
         ResetStage();
-        StageClearList[currentStageNumber - 1] = true;
         //결과창 띄워주기
         FindObjectOfType<UI_Manager>().ClearPanel.SetActive(true);
         if(currentStageNumber < 3)
@@ -239,7 +221,9 @@ public class DataManager : MonoBehaviour
     void GameOver()
     {
         //결과창 띄워주기
-        //ResetStage();
+        GameManagerScript.instance.StopStage();
+        ResetStage();
+        FindObjectOfType<UI_Manager>().Overpanel.SetActive(true);
     }
 
     public void MinusHP()
