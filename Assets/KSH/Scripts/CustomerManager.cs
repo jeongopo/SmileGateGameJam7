@@ -46,6 +46,7 @@ public class CustomerManager : MonoBehaviour
             onList.Add(findCustomer);
             offList.Remove(findCustomer);
             findCustomer.gameObject.SetActive(true);
+            FindObjectOfType<OrderUIManager>().setStart(this.gameObject);
         }
     }
 
@@ -59,6 +60,7 @@ public class CustomerManager : MonoBehaviour
             onList.Remove(findCustomer);
             findCustomer.gameObject.SetActive(false);
             isCustomerPosition[_customer.positionNumber] = false;
+            
         }
     }
 
@@ -83,6 +85,7 @@ public class CustomerManager : MonoBehaviour
             SettingCustomer(tmp);
             tmp.CustomerReset();
         }
+        FindObjectOfType<OrderUIManager>().allinactive();
     }
 
     public Vector2 RePositioningCustomer(Customer _customer)

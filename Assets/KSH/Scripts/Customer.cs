@@ -104,6 +104,7 @@ public class Customer : MonoBehaviour
 
     void OrderOver(bool _timerOver) //시간종료, 주문완료
     {
+        FindObjectOfType<OrderUIManager>().setFinish(positionNumber);
         isOrder = false;
         if(!_timerOver)
         {
