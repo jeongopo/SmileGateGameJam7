@@ -14,6 +14,7 @@ public class DataManager : MonoBehaviour
     public Dictionary<int, List<int>> DrinkNumberPercentage; //갯수
     public Dictionary<int, List<int>> DrinkRankPercentage; //등급
     public Dictionary<string, int> IngredientsPrice; //재료 가격
+    public List<bool> StageClearList = new List<bool>();
     public List<string> Drink_1 = new List<string>();//1등급 음료들
     public List<string> Drink_2 = new List<string>();//2등급 음료들
     public List<string> Drink_3 = new List<string>();//3등급 음료들
@@ -191,11 +192,19 @@ public class DataManager : MonoBehaviour
         if(currentStagePoint.Equals(clearPoint[currentStageNumber]))
         {
             //todo..
-            //StageClear();
+            StageClear();
             GameManagerScript.instance.StopStage();
             ResetStage();
             //결과창 띄워주기
         }
+    }
+
+    void StageClear()
+    {
+        GameManagerScript.instance.StopStage();
+        ResetStage();
+        StageClearList[currentStageNumber - 1] = true;
+        //결과창 띄워주기
     }
 
     void GameOver()
