@@ -279,4 +279,9 @@ public class DataManager : MonoBehaviour
     {
         currentStagePoint = defaultPoint;
     }
+
+    private void Update()
+    {
+        Debug.Log(currentStagePoint);
+    }
 }

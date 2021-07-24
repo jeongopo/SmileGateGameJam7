@@ -99,6 +99,7 @@ public class CustomerManager : MonoBehaviour
         if(!offList.Count.Equals(0))
         {
             SettingCustomer(offList[0]);
+            offList[0].isOrder = true;
             offList[0].transform.position = RePositioningCustomer(offList[0]);
             SetOnPooling(offList[0]);
         }
