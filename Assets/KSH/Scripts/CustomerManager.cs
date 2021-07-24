@@ -34,7 +34,6 @@ public class CustomerManager : MonoBehaviour
         {
             isCustomerPosition.Add(false);
         }
-
     }
 
     public void SetOnPooling(Customer _customer) //오브젝트 켤때 콜백함수
