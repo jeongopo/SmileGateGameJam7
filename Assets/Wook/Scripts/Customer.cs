@@ -41,13 +41,14 @@ public class Customer : MonoBehaviour
         for(int i = 0; i < _orderCount; i++)
         {
             OrderDrink.Add(Drinks[Random.Range(0, Drinks.Count)]);
+            OrderSuccess.Add(false);
         }
     }
 
-    void CheckDrink(string _ReceivedDrinkName) //자신이 주문한 음료와 받은 음료가 맞는지 검사
+    void CheckDrink(Food _ReceivedDrink) //자신이 주문한 음료와 받은 음료가 맞는지 검사
     {
         //중복된 음료를 주문할때 예외처리
-        string ReceivedDrinkName = _ReceivedDrinkName;
+        string ReceivedDrinkName = _ReceivedDrink.FoodName;
         for (int i = 0; i < OrderDrink.Count; i++)
         {
             if(OrderSuccess[i])
@@ -75,6 +76,7 @@ public class Customer : MonoBehaviour
     public void CustomerReset()
     {
         OrderDrink.Clear();
+        OrderSuccess.Clear();
     }
 
     void OrderOver() //시간종료, 주문완료
@@ -89,8 +91,7 @@ public class Customer : MonoBehaviour
 
     public void ReceiveDrink(Food _Drink) //음료 주기
     {
-
-        CheckDrink(_Drink.FoodName);
+        CheckDrink(_Drink);
     }
 
 }

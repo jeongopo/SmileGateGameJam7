@@ -13,6 +13,7 @@ public class DataManager : MonoBehaviour
     public Dictionary<int, List<int>> successPoint; //손님의 주문을 성공적으로 수행했을때 보상
     public Dictionary<int, List<int>> DrinkNumberPercentage; //갯수
     public Dictionary<int, List<int>> DrinkRankPercentage; //등급
+    public Dictionary<string, List<int>> IngredientsPrice; //재료 가격
     public List<string> Drink_1 = new List<string>();//1등급 음료들
     public List<string> Drink_2 = new List<string>();//2등급 음료들
     public List<string> Drink_3 = new List<string>();//3등급 음료들
@@ -108,6 +109,26 @@ public class DataManager : MonoBehaviour
                 listTmp.Add(data_values[i]);
             }
             tmp.Add(int.Parse(data_values[0]), listTmp);
+        }
+        return tmp;
+    }
+
+    Dictionary<string, int> ReadIngredientsPriceFile(string file)
+    {
+        Dictionary<string, int> tmp = new Dictionary<string, int>();
+        StreamReader sr = new StreamReader(Application.dataPath + "/" + file);
+
+        bool endOfFile = false;
+        while (!endOfFile)
+        {
+            string data_String = sr.ReadLine();
+            if (data_String == null)
+            {
+                endOfFile = true;
+                break;
+            }
+            string[] data_values = data_String.Split(',');
+            tmp.Add(data_values[0], int.Parse(data_values[1]));
         }
         return tmp;
     }

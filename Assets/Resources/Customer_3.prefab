@@ -101,7 +101,7 @@ MonoBehaviour:
   Order_Timer: 0
   Timer: 0
   isOrder: 0
-  animator: {fileID: 0}
+  animator: {fileID: 8381745450706142356}
   ReceivedDrink: []
   positionNumber: 0
 --- !u!95 &8381745450706142356
