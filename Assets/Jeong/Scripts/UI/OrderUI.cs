@@ -14,6 +14,7 @@ public class OrderUI : MonoBehaviour
         for (int i = 1; i < slots.Length; i++)
         {
             slots[i].gameObject.SetActive(true);
+            slots[i].resetimg();
         }
 
         for (int i = 0; i < slots.Length; i++)

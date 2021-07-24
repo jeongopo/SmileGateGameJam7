@@ -21,5 +21,10 @@ public class OrderSlot : MonoBehaviour
         tem.a=0.5f;
         image.color=tem;
     }
+    public void resetimg(){
+        Color tem=image.color;
+        tem.a=1f;
+        image.color=tem;
+    }
 
 }
