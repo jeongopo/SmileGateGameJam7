@@ -1723,7 +1723,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1860863513}
         m_TargetAssemblyTypeName: Scememanager, Assembly-CSharp
         m_MethodName: Chage_Scene
         m_Mode: 3
