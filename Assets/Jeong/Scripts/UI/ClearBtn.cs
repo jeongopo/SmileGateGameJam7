@@ -8,6 +8,10 @@ public class ClearBtn : MonoBehaviour
         int num=FindObjectOfType<DataManager>().currentStageNumber;
         if(num>=3){
             FindObjectOfType<Scememanager>().Title_Scene();
-        }else FindObjectOfType<Scememanager>().Chage_Scene(num+1);
+        }else if(num==2){
+            FindObjectOfType<Scememanager>().Hard_Stage();
+        }else if(num==1){
+            FindObjectOfType<Scememanager>().Normal_Stage();
+        }
     }
 }

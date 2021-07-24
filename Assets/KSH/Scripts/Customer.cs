@@ -35,7 +35,7 @@ public class Customer : MonoBehaviour
             OrderOver(true);
     }
 
-    float GetTimer()
+    public float GetTimer()
     {
         return Timer / Order_Timer;
     }
