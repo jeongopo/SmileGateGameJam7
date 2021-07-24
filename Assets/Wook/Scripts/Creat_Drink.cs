@@ -8,14 +8,18 @@ public class Creat_Drink : MonoBehaviour
     [SerializeField] Food[] Rank2_Drink;
     [SerializeField] Food[] Rank3_Drink;
 
-    Select_ingredient select_ingredient;
 
     Food Main_Ingredient;
     Food[] Sub_Ingredient;
     Food CreatFood;
+
+
+    Select_ingredient select_ingredient;
+    Drink drink;
     private void Start()
     {
         select_ingredient = FindObjectOfType<Select_ingredient>();
+        drink = FindObjectOfType<Drink>();
     }
     void Set_Ingredient(Food main, Food[] sub)
     {
@@ -157,9 +161,13 @@ public class Creat_Drink : MonoBehaviour
         Recipe_Check();
         select_ingredient.Select_ingredient_Reset();
 
-        if(CreatFood != null)
+        drink.GetFood(CreatFood);
+
+        if (CreatFood != null)
             Debug.Log(CreatFood.FoodName);
         else
             Debug.Log("½ÇÆÐ");
+
+
     }
 }
