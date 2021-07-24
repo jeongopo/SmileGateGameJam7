@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 public class Scememanager : MonoBehaviour
 {
     
+    public void Chage_Scene(int _number)
+    {
+        SceneManager.LoadScene(_number);
+    }
+
     public void Title_Scene()
     {
         GameManagerScript.instance.StopStage();

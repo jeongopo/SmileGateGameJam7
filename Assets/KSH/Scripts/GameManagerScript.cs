@@ -35,5 +35,10 @@ public class GameManagerScript : MonoBehaviour
     {
         CustomerManager.instance.SapwnCustomer();
     }
+    
+    private void Start()
+    {
+        Invoke("GameStart", 1);
+    }
 }
 
