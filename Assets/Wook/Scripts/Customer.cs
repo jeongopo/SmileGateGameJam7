@@ -87,9 +87,10 @@ public class Customer : MonoBehaviour
 
     }
 
-    public void ReceiveDrink(string _DrinkName) //음료 주기
+    public void ReceiveDrink(Food _Drink) //음료 주기
     {
-        CheckDrink(_DrinkName);
+
+        CheckDrink(_Drink.FoodName);
     }
 
 }

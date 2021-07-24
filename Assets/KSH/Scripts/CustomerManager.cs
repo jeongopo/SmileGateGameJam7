@@ -80,13 +80,14 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
-    public Vector2 RePositioningCustomer()
+    public Vector2 RePositioningCustomer(Customer _customer)
     {
         for(int i = 0; i < customerPositionList.Count; i++)
         {
             if(!isCustomerPosition[i])
             {
                 isCustomerPosition[i] = true;
+                _customer.positionNumber = i;
                 return customerPositionList[i];
             }
         }
@@ -98,7 +99,7 @@ public class CustomerManager : MonoBehaviour
         if(!offList.Count.Equals(0))
         {
             SettingCustomer(offList[0]);
-            offList[0].transform.position = RePositioningCustomer();
+            offList[0].transform.position = RePositioningCustomer(offList[0]);
             SetOnPooling(offList[0]);
         }
     }
