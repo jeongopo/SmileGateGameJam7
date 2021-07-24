@@ -12,6 +12,7 @@ public class Customer : MonoBehaviour
 
     public Animator animator;
     public List<string> ReceivedDrink = new List<string>();
+    public int positionNumber;
     List<bool> OrderSuccess = new List<bool>();
     int OrderSuccessCount = 0;
 
@@ -71,12 +72,19 @@ public class Customer : MonoBehaviour
             OrderOver();
     }
 
+    public void CustomerReset()
+    {
+        OrderDrink.Clear();
+    }
+
     void OrderOver() //시간종료, 주문완료
     {
         DataManager.instance.AcheiveStagePoint(OrderSuccessCount);
         isOrder = false;
         //todo 손님제거
         CustomerManager.instance.SetOffPooling(this);
+        CustomerReset();
+
     }
 
     public void ReceiveDrink(string _DrinkName) //음료 주기

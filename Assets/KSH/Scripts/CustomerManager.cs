@@ -41,7 +41,7 @@ public class CustomerManager : MonoBehaviour
             findCustomer.transform.SetParent(OnPoolingParent);
             onList.Add(findCustomer);
             offList.Remove(findCustomer);
-            gameObject.SetActive(true);
+            findCustomer.gameObject.SetActive(true);
         }
     }
 
@@ -53,7 +53,8 @@ public class CustomerManager : MonoBehaviour
             findCustomer.transform.SetParent(OnPoolingParent);
             offList.Add(findCustomer);
             onList.Remove(findCustomer);
-            gameObject.SetActive(false);
+            findCustomer.gameObject.SetActive(false);
+            isCustomerPosition[_customer.positionNumber] = false;
         }
     }
 
@@ -75,6 +76,7 @@ public class CustomerManager : MonoBehaviour
             allList.Add(tmp);
             offList.Add(tmp);
             SettingCustomer(tmp);
+            tmp.CustomerReset();
         }
     }
 
@@ -82,7 +84,7 @@ public class CustomerManager : MonoBehaviour
     {
         for(int i = 0; i < customerPositionList.Count; i++)
         {
-            if(isCustomerPosition[i])
+            if(!isCustomerPosition[i])
             {
                 isCustomerPosition[i] = true;
                 return customerPositionList[i];
@@ -91,12 +93,12 @@ public class CustomerManager : MonoBehaviour
         return Vector2.zero;
     }
 
-    public void sapwnCustomer()
+    public void SapwnCustomer()
     {
         if(!offList.Count.Equals(0))
         {
             SettingCustomer(offList[0]);
-            RePositioningCustomer();
+            offList[0].transform.position = RePositioningCustomer();
             SetOnPooling(offList[0]);
         }
     }
@@ -104,7 +106,8 @@ public class CustomerManager : MonoBehaviour
     void Start()
     {
         //임시 딜레이
-        Invoke("InitCustomer", 1);
+        // Invoke("InitCustomer", 1);
+        InitCustomer();
     }
 
     void CustomerSapwn()

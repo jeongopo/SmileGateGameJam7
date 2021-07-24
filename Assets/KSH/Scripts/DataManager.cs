@@ -6,17 +6,20 @@ using System.IO;
 public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
-    public Dictionary<int, int> clearPoint = new Dictionary<int, int>(); //스테이지 클리어까지 목표점수
+    
+    public int defaultPoint;
+    public List<int> clearPoint = new List<int>();
+    [Space]
     public Dictionary<int, List<int>> successPoint; //손님의 주문을 성공적으로 수행했을때 보상
     public Dictionary<int, List<int>> DrinkNumberPercentage; //갯수
     public Dictionary<int, List<int>> DrinkRankPercentage; //등급
     public List<string> Drink_1 = new List<string>();//1등급 음료들
     public List<string> Drink_2 = new List<string>();//2등급 음료들
     public List<string> Drink_3 = new List<string>();//3등급 음료들
+    [Space]
     public int customerTimer;
     public int currentStageNumber;
-
-    int currentStagePoint;
+    public int currentStagePoint;
     public bool isStagePlaying = false;
 
     Dictionary<int, int> ReadIntIntFile(string file)
@@ -133,7 +136,6 @@ public class DataManager : MonoBehaviour
     void DataSetting()
     {
         //todo//
-        clearPoint = ReadIntIntFile("ClearPointFile.csv");
         DrinkNumberPercentage = ReadSuccessPointFile("DrinkNumberPercentage.csv");
         DrinkRankPercentage = ReadSuccessPointFile("DrinkRankPercentage.csv");
         Drink_1 = ReadStringFile("Drink_1.csv");
@@ -158,7 +160,7 @@ public class DataManager : MonoBehaviour
         return currentStageNumber;
     }
 
-    void CheckStageClear()
+    void CheckStageClear() //점수 흭득시마다 클리어 확인
     {
         if(currentStagePoint.Equals(clearPoint[currentStageNumber]))
         {
@@ -199,17 +201,14 @@ public class DataManager : MonoBehaviour
         if(randomTmp <= DrinkNumberPercentage[currentStageNumber][0])
         {
             count = 1;
-            Debug.Log("한번");
         }
         else if(randomTmp <= DrinkNumberPercentage[currentStageNumber][1])
         {
             count = 2;
-            Debug.Log("두번");
         }
         else 
         {
             count = 3;
-            Debug.Log("세번");
         }
 
         for(int i = 0 ; i < count; i++)
@@ -219,17 +218,14 @@ public class DataManager : MonoBehaviour
             if (randomTmp <= DrinkRankPercentage[currentStageNumber][0])
             {
                 tmp.Add(Drink_1[Random.Range(0, Drink_1.Count)]);
-                Debug.Log("1단계 요리");
             }
             else if (randomTmp <= DrinkRankPercentage[currentStageNumber][1])
             {
                 tmp.Add(Drink_2[Random.Range(0, Drink_2.Count + 1)]);
-                Debug.Log("2단계 요리");
             }
             else
             {
                 tmp.Add(Drink_3[Random.Range(0, Drink_3.Count + 1)]);
-                Debug.Log("3단계 요리");
             }
         }
         _orderCount = count;
@@ -238,6 +234,6 @@ public class DataManager : MonoBehaviour
 
     public void UsePoint(int _Point)
     {
-        
+        currentStagePoint += _Point;
     }
 }
