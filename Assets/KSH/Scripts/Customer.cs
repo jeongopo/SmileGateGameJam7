@@ -111,6 +111,7 @@ public class Customer : MonoBehaviour
         {
             spriteRenderer.material = shakeMaterials[0];
             DataManager.instance.AcheiveStagePoint(StagePointLits, Order_Timer, Timer);
+            SoundManager.instance.PlaySoundEffect("Coin");
             animator.SetTrigger("OrderSuccessTrigger");
             Invoke("FactionCustomer", 0.8f);
         }

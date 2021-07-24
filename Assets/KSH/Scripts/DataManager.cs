@@ -203,12 +203,12 @@ public class DataManager : MonoBehaviour
             GameManagerScript.instance.StopStage();
             StageClear();
             ResetStage();
-            //결과창 띄워주기
         }
     }
 
     void StageClear()
     {
+        SoundManager.instance.PlaySoundEffect("GameClear");
         StageClearList[currentStageNumber - 1] = true;
         GameManagerScript.instance.StopStage();
         ResetStage();
@@ -221,6 +221,7 @@ public class DataManager : MonoBehaviour
     void GameOver()
     {
         //결과창 띄워주기
+        SoundManager.instance.PlaySoundEffect("GameOver");
         GameManagerScript.instance.StopStage();
         ResetStage();
         FindObjectOfType<UI_Manager>().Overpanel.SetActive(true);
