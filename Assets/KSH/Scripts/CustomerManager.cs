@@ -74,7 +74,7 @@ public class CustomerManager : MonoBehaviour
 
     void InitCustomer()//customer 초기생성
     {
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < customerPrefab.Length; i++)
         {
             Customer tmp = Instantiate(customerPrefab[i].gameObject).GetComponent<Customer>();
             tmp.name = "Customer_" + i.ToString();
