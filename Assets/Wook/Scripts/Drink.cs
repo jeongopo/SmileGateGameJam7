@@ -80,6 +80,7 @@ public class Drink : MonoBehaviour
             color.a = 0;
             Food_image.color = color;
             Cursor.visible = true;
+            Making_Drink.SetActive(true);
         }
 
         //RaycastHit hitInfo;
@@ -118,6 +119,7 @@ public class Drink : MonoBehaviour
                 color.a = 0;
                 Food_image.color = color;
                 IsCreatFood = false;
+                Making_Drink.SetActive(true);
                 return;
             }
         }
