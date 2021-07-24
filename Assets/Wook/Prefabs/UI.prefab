@@ -2786,6 +2786,7 @@ GameObject:
   - component: {fileID: 2714680689487379320}
   - component: {fileID: 2730269770709748462}
   - component: {fileID: 1342982046}
+  - component: {fileID: 4516700747307490595}
   m_Layer: 0
   m_Name: nextlevel_btn
   m_TagString: Untagged
@@ -2895,7 +2896,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1342982046}
+      - m_Target: {fileID: 4516700747307490595}
         m_TargetAssemblyTypeName: ClearBtn, Assembly-CSharp
         m_MethodName: setbtnlevel
         m_Mode: 1
@@ -2908,6 +2909,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1342982046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2251782678380861933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b950eee87e81b42b61b00856c8fd90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4516700747307490595
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5751,6 +5764,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e6c07bb184613c04ca3a59344e8c053d, type: 2}
   - {fileID: 11400000, guid: 175c17f1418d45942a0399d67c546216, type: 2}
   - {fileID: 11400000, guid: aaaba5f7eb62fe747b88e6b067046ad9, type: 2}
+  foodslots:
+  - {fileID: 7471300362399288654}
+  - {fileID: 4759310529106018448}
+  - {fileID: 7744532342337221052}
+  - {fileID: 4768759529692438955}
 --- !u!1 &4798977466735265153
 GameObject:
   m_ObjectHideFlags: 0
