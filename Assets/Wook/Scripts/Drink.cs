@@ -65,6 +65,9 @@ public class Drink : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, transform.forward);
+
+        if (hit == null) return;
+
         if (hit.transform.tag == "Customer")
         {
             Customer customer = hit.transform.GetComponent<Customer>();
@@ -73,6 +76,7 @@ public class Drink : MonoBehaviour
             CreatFood = null;
             color.a = 0;
             Food_image.color = color;
+            Cursor.visible = true;
         }
 
         //RaycastHit hitInfo;
