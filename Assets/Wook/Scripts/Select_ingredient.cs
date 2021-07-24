@@ -38,6 +38,8 @@ public class Select_ingredient : MonoBehaviour
     //주재료 제거
     public void Main_Ingredient_UnSelect()
     {
+        if (F_Main_Food == null)
+            return;
         DataManager.instance.UsePoint(F_Main_Food.Price);
         F_Main_Food = null;
         Change_Alpha(B_Main_Ingredient, 0);
@@ -63,16 +65,19 @@ public class Select_ingredient : MonoBehaviour
             }
         }
 
-        DataManager.instance.UsePoint(-F_Sub_Food[SubFood_Count].Price);
         F_Sub_Food[SubFood_Count] = food;
         Change_button(B_Sub_Ingredient[SubFood_Count], food, 1);
+        DataManager.instance.UsePoint(-F_Sub_Food[SubFood_Count].Price);
+
         SubFood_Count++;
     }
 
     //부재료 제거
     public void Sub_Ingredient_UnSelect(int num)
     {
-        DataManager.instance.UsePoint(F_Sub_Food[SubFood_Count].Price);
+        if (F_Sub_Food[num] == null)
+            return;
+        DataManager.instance.UsePoint(F_Sub_Food[num].Price);
         F_Sub_Food[num] = null;
         Change_Alpha(B_Sub_Ingredient[num], 0);
 

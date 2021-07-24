@@ -53,31 +53,65 @@ public class Drink : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Trash();
+            Give_drink();
+        }
+    }
+
+    void Give_drink()
+    {
+        Vector3 mousePosition;
+        mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, transform.forward);
+        if (hit.transform.tag == "Customer")
+        {
+            Customer customer = hit.transform.GetComponent<Customer>();
+            customer.ReceiveDrink(CreatFood);
+            IsCreatFood = false;
+            CreatFood = null;
+            color.a = 0;
+            Food_image.color = color;
+        }
+
+        //RaycastHit hitInfo;
+
+        //if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo))
+        //{
+        //    if(hitInfo.transform.tag == "Customer")
+        //    {
+        //        Customer customer = hitInfo.transform.GetComponent<Customer>();
+        //        customer.ReceiveDrink(CreatFood);
+        //        IsCreatFood = false;
+        //        CreatFood = null;
+        //        color.a = 0;
+        //        Food_image.color = color;
+        //    }
+        //}
+
+    }
 
 
-            var pad = new PointerEventData(null);
-            pad.position = Input.mousePosition;
-            List<RaycastResult> results = new List<RaycastResult>();
-            gr.Raycast(pad, results);
+    void Trash()
+    {
+        var pad = new PointerEventData(null);
+        pad.position = Input.mousePosition;
+        List<RaycastResult> results = new List<RaycastResult>();
+        gr.Raycast(pad, results);
 
-            if (results.Count <= 0) return;
+        if (results.Count <= 0) return;
 
-            for (int i = 0; i < results.Count; i++)
+        for (int i = 0; i < results.Count; i++)
+        {
+            if (results[i].gameObject.transform.tag == "TrashCan")
             {
-                if (results[i].gameObject.transform.tag == "TrashCan")
-                {
-                    Cursor.visible = true;
-                    CreatFood = null;
-                    color.a = 0;
-                    Food_image.color = color;
-                    IsCreatFood = false;
-                    return;
-                }
-                else if (results[i].gameObject.transform.tag == "TrashCan")
-                {
-
-                    return;
-                }
+                Cursor.visible = true;
+                CreatFood = null;
+                color.a = 0;
+                Food_image.color = color;
+                IsCreatFood = false;
+                return;
             }
         }
     }
