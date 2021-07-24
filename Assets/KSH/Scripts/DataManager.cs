@@ -189,7 +189,7 @@ public class DataManager : MonoBehaviour
 
     void CheckStageClear() //점수 흭득시마다 클리어 확인
     {
-        if(currentStagePoint.Equals(clearPoint[currentStageNumber - 1]))
+        if(currentStagePoint >= (clearPoint[currentStageNumber - 1]))
         {
             //todo..
             Debug.Log("Clear");
@@ -231,7 +231,7 @@ public class DataManager : MonoBehaviour
     {
         float addTmp = 0;
         float timerMultiple;
-        if(_customerTimer / _orderTimer >= 0.3) //*2
+        if(_customerTimer / _orderTimer >= 0.3) 
         {
             timerMultiple = 2;
         }
