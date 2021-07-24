@@ -11,7 +11,7 @@ public class OrderUI : MonoBehaviour
     
     public void setimg()//주문받은 내용을 UI로 표시하는 함수
     { 
-        for (int i = 1; i < slots.Length; i++)
+        for (int i = 0; i < slots.Length; i++)
         {
             slots[i].gameObject.SetActive(true);
             slots[i].resetimg();
