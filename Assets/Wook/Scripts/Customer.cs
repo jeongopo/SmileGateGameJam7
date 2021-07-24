@@ -55,7 +55,7 @@ public class Customer : MonoBehaviour
     void CheckDrink(Food _ReceivedDrink) //자신이 주문한 음료와 받은 음료가 맞는지 검사
     {
         //중복된 음료를 주문할때 예외처리
-        string ReceivedDrinkName = _ReceivedDrink.FoodName;
+        string ReceivedDrinkName = _ReceivedDrink.name;
         for (int i = 0; i < OrderDrink.Count; i++)
         {
             if(OrderSuccess[i])
@@ -92,6 +92,7 @@ public class Customer : MonoBehaviour
         OrderDrink.Clear();
         OrderSuccess.Clear();
         StagePointLits.Clear();
+        OrderSuccessCount = 0;
     }
 
     void OrderOver(bool _timerOver) //시간종료, 주문완료
@@ -100,20 +101,18 @@ public class Customer : MonoBehaviour
         {
             DataManager.instance.AcheiveStagePoint(StagePointLits, Order_Timer, Timer);
             animator.SetTrigger("OrderSuccessTrigger");
-            isOrder = false;
-            CustomerManager.instance.SetOffPooling(this);
-            CustomerReset();
-            GetoutCustomer();
+            // animator.SetTrigger("OrderSuccessTrigger");
+            Invoke("DissatisfactionCustomer", 0.8f);
         }
         else 
         {
             animator.SetTrigger("OrderFailTrigger");
-            Invoke("GetoutCustomer", 0.5f);
+            Invoke("DissatisfactionCustomer", 0.8f);
         }
 
     }
 
-    void GetoutCustomer()
+    void DissatisfactionCustomer()
     {
         isOrder = false;
         CustomerManager.instance.SetOffPooling(this);
