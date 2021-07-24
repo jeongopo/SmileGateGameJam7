@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5995915570589886075}
   - component: {fileID: 5995915570589886020}
   - component: {fileID: 5995915570589886073}
+  - component: {fileID: 4880929019601154942}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -52,9 +53,9 @@ MonoBehaviour:
   - {fileID: 6389759199693285626, guid: cf11c4dcc195452408506e009e52203c, type: 3}
   - {fileID: 3529320854184700587, guid: a349350740f8a3449ba11964d646edc7, type: 3}
   customerPositionList:
-  - {x: -6, y: 0}
-  - {x: 0, y: 0}
-  - {x: 6, y: 0}
+  - {x: -6, y: 2.5}
+  - {x: 0, y: 2.5}
+  - {x: 6, y: 2.5}
   OnPoolingParent: {fileID: 5995915572289916465}
   OffPoolingParent: {fileID: 5995915571405118356}
 --- !u!114 &5995915570589886020
@@ -91,6 +92,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customerSapwnDelay: 3
+--- !u!114 &4880929019601154942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5995915570589886021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8bb3af61bbf7f4dad98f6fbaa5588d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5995915571405118357
 GameObject:
   m_ObjectHideFlags: 0

@@ -98,12 +98,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OrderDrink: []
+  shakeMaterials:
+  - {fileID: 2100000, guid: 07797697ae0345d4ab045e9b8c1040c6, type: 2}
+  - {fileID: 2100000, guid: 366a06b9070b5464186b42227182c169, type: 2}
   Order_Timer: 0
   Timer: 0
   isOrder: 0
   animator: {fileID: 3931086719225647089}
-  ReceivedDrink: []
   positionNumber: 0
+  ReceivedDrink: []
+  OrderSuccess: 
+  spriteRenderer: {fileID: 4420622154298877175}
 --- !u!95 &3931086719225647089
 Animator:
   serializedVersion: 3

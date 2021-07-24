@@ -10,10 +10,20 @@ public class Select_ingredient : MonoBehaviour
     [SerializeField] Food F_Main_Food;
     [SerializeField] Button[] B_Sub_Ingredient;
     [SerializeField] Food[] F_Sub_Food = new Food[3];
-
+    [SerializeField] Material Select;
+    [SerializeField] Material Idle_Material;
+    [SerializeField] Image Making_Image;
     int SubFood_Count = 0;
 
+    IEnumerator Change_Material()
+    {
+        Making_Image.material = Select;
 
+        yield return new WaitForSeconds(1f);
+        Making_Image.material = Idle_Material;
+        yield break;
+
+    }
     private void Start()
     {
 
@@ -33,6 +43,7 @@ public class Select_ingredient : MonoBehaviour
         F_Main_Food = food;
         DataManager.instance.UsePoint(-F_Main_Food.Price);
         Change_button(B_Main_Ingredient, food, 1);
+        StartCoroutine(Change_Material());
     }
 
     //주재료 제거
@@ -68,7 +79,7 @@ public class Select_ingredient : MonoBehaviour
         F_Sub_Food[SubFood_Count] = food;
         Change_button(B_Sub_Ingredient[SubFood_Count], food, 1);
         DataManager.instance.UsePoint(-F_Sub_Food[SubFood_Count].Price);
-
+        StartCoroutine(Change_Material());
         SubFood_Count++;
     }
 

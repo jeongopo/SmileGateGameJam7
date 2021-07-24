@@ -163,7 +163,6 @@ public class DataManager : MonoBehaviour
         Drink_1 = ReadStringFile("Drink_1.csv");
         Drink_2 = ReadStringFile("Drink_2.csv");
         Drink_3 = ReadStringFile("Drink_3.csv");
-        //successPoint = ReadSuccessPointFile(파일이름);
     }
 
     private void Awake() 
@@ -189,6 +188,7 @@ public class DataManager : MonoBehaviour
         {
             //todo..
             //StageClear();
+            GameManagerScript.instance.StopStage();
             ResetStage();
         }
     }

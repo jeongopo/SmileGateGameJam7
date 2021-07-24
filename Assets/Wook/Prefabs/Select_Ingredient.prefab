@@ -766,6 +766,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  Select: {fileID: 2100000, guid: 32f79955f573761409b09a70489f7f3c, type: 2}
+  Idle_Material: {fileID: 2100000, guid: 74dedf455c2dfc448820f481d9fa6d89, type: 2}
+  Making_Image: {fileID: 0}
 --- !u!1 &3117184089064845320
 GameObject:
   m_ObjectHideFlags: 0
