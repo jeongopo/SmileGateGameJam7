@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ShakeCustomer
+  m_Name: ShakeCustomer 1
   m_Shader: {fileID: 4800000, guid: a53f4bb29f3644b43b5075c6dcfecb32, type: 3}
   m_ShaderKeywords: OUTBASE8DIR_ON OUTDIST_ON OUTTEX_ON SHAKEUV_ON _OUTLINE8DIRECTIONS_ON
     _OUTLINEDISTORTTOGGLE_ON _OUTLINETEXTOGGLE_ON

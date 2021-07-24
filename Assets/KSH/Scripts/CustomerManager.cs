@@ -24,6 +24,10 @@ public class CustomerManager : MonoBehaviour
     {
         if(instance == null)
             instance = this;
+        else 
+        {
+            Destroy(gameObject);
+        }
 
         isCustomerPosition = new List<bool>();
         for(int i = 0; i < customerPositionList.Count; i++)
@@ -105,16 +109,18 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
-    void Start()
+    public void ResetStage()
     {
-        //임시 딜레이
-        // Invoke("InitCustomer", 1);
-        InitCustomer();
+        for(int i = 0; i < onList.Count; i++)
+        {
+            onList[0].isOrder = false;
+            SetOffPooling(onList[0]);
+        }
     }
 
-    void CustomerSapwn()
+    void Start()
     {
-        
+        InitCustomer();
     }
 }
 

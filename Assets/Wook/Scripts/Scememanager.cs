@@ -5,8 +5,18 @@ using UnityEngine.SceneManagement;
 public class Scememanager : MonoBehaviour
 {
     
-    public void Change_Scene(int Scene_Number)
+    public void Title_Scene()
     {
-        SceneManager.LoadScene(Scene_Number);
+        GameManagerScript.instance.StopStage();
+        SceneManager.LoadScene(0);
     }
+
+    public void Stage_Scene(int _stageNumber)
+    {
+        DataManager.instance.currentStageNumber = _stageNumber;
+        SceneManager.LoadScene(1);
+        GameManagerScript.instance.GameStart();
+    }
+
+    
 }
