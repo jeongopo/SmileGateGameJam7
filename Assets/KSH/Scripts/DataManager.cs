@@ -190,6 +190,7 @@ public class DataManager : MonoBehaviour
             //StageClear();
             GameManagerScript.instance.StopStage();
             ResetStage();
+            //결과창 띄워주기
         }
     }
 
@@ -233,8 +234,9 @@ public class DataManager : MonoBehaviour
     public List<string> GetPossibleOrderDrink(ref int _orderCount)//손님의 주문 생성
     {
         List<string> tmp = new List<string>();
-        int randomTmp = Random.Range(0, 10);
+        int randomTmp = Random.Range(1, 11);
         int count;
+        Debug.Log(randomTmp);
 
         if(randomTmp <= DrinkNumberPercentage[currentStageNumber][0])
         {
@@ -248,10 +250,11 @@ public class DataManager : MonoBehaviour
         {
             count = 3;
         }
+        _orderCount = count;
 
         for(int i = 0 ; i < count; i++)
         {
-            randomTmp = Random.Range(0, 10);
+            randomTmp = Random.Range(1, 11);
 
             if (randomTmp <= DrinkRankPercentage[currentStageNumber][0])
             {
@@ -259,14 +262,13 @@ public class DataManager : MonoBehaviour
             }
             else if (randomTmp <= DrinkRankPercentage[currentStageNumber][1])
             {
-                tmp.Add(Drink_2[Random.Range(0, Drink_2.Count + 1)]);
+                tmp.Add(Drink_2[Random.Range(0, Drink_2.Count)]);
             }
             else
             {
-                tmp.Add(Drink_3[Random.Range(0, Drink_3.Count + 1)]);
+                tmp.Add(Drink_3[Random.Range(0, Drink_3.Count)]);
             }
         }
-        _orderCount = count;
         return tmp;
     }
 
@@ -278,10 +280,5 @@ public class DataManager : MonoBehaviour
     public void SetStartStage()
     {
         currentStagePoint = defaultPoint;
-    }
-
-    private void Update()
-    {
-        Debug.Log(currentStagePoint);
     }
 }
