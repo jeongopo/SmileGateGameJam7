@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Customer : MonoBehaviour
 {
-    public Sprite[] CustomerSprites;
-    public Animator[] CustomerAnimators;
     public List<string> OrderDrink = new List<string>();
 
     [SerializeField] float Order_Timer;
@@ -65,6 +63,7 @@ public class Customer : MonoBehaviour
             else 
             {
                 //todo 실패애니메이션 재생
+                animator.SetTrigger("OrderFailTrigger");
             }
         }
        
@@ -77,6 +76,7 @@ public class Customer : MonoBehaviour
         DataManager.instance.AcheiveStagePoint(OrderSuccessCount);
         isOrder = false;
         //todo 손님제거
+        CustomerManager.instance.SetOffPooling(this);
     }
 
     public void ReceiveDrink(string _DrinkName) //음료 주기

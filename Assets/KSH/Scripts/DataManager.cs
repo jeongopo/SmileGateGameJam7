@@ -14,16 +14,10 @@ public class DataManager : MonoBehaviour
     public List<string> Drink_2 = new List<string>();//2등급 음료들
     public List<string> Drink_3 = new List<string>();//3등급 음료들
     public int customerTimer;
+    public int currentStageNumber;
 
-    int currentStageNumber;
     int currentStagePoint;
     public bool isStagePlaying = false;
-
-    private void Awake() 
-    {
-        if(instance == null)
-            instance = this;
-    }
 
     Dictionary<int, int> ReadIntIntFile(string file)
     {
@@ -140,17 +134,22 @@ public class DataManager : MonoBehaviour
     {
         //todo//
         clearPoint = ReadIntIntFile("ClearPointFile.csv");
-        DrinkNumberPercentage = ReadSuccessPointFile("ReadSuccessPointFile.csv");
-        DrinkRankPercentage = ReadSuccessPointFile("DrinkRankPercentage");
-        Drink_1 = ReadStringFile("Drink_1");
-        Drink_2 = ReadStringFile("Drink_2");
-        Drink_3 = ReadStringFile("Drink_3");
+        DrinkNumberPercentage = ReadSuccessPointFile("DrinkNumberPercentage.csv");
+        DrinkRankPercentage = ReadSuccessPointFile("DrinkRankPercentage.csv");
+        Drink_1 = ReadStringFile("Drink_1.csv");
+        Drink_2 = ReadStringFile("Drink_2.csv");
+        Drink_3 = ReadStringFile("Drink_3.csv");
         //successPoint = ReadSuccessPointFile(파일이름);
     }
 
-    void Start() 
+    private void Awake() 
     {
-        DataSetting();
+        if(instance == null)
+        {
+            DataSetting();
+            instance = this;
+        }
+
     }
 
     public int ChangeStage(int _stageNumber) //스테이지를 변경할 때 호출해야 하는 함수 (변경된 스테이지 번호를 return)
@@ -163,69 +162,82 @@ public class DataManager : MonoBehaviour
     {
         if(currentStagePoint.Equals(clearPoint[currentStageNumber]))
         {
-            //Stage Clear
             //todo..
+            //StageClear();
+            ResetStage();
         }
     }
 
-    public void AcheiveStagePoint(int _OrderSuccessCount)
+    public void AcheiveStagePoint(int _OrderSuccessCount) //점수 흭득시 콜백함수
     {
         currentStagePoint += _OrderSuccessCount;
         CheckStageClear();
     }
 
-    public void ResetStage()
+    public void ResetStage() //스테이지 종료시 콜백함수
     {
         isStagePlaying = false;
         currentStagePoint = 0;
     }
 
-    public float GetCustomerTimer(int _orderCount)
+    public float GetCustomerTimer(int _orderCount) //손님 제한시간 생성
     {
         return customerTimer * _orderCount;
     }
 
-    public int GetSuccessPoint(int _successOrder)
+    public int GetSuccessPoint(int _successOrder) //손님 보상 점수 생성
     {
         return successPoint[currentStageNumber][_successOrder];
     }
 
-    public List<string> GetPossibleOrderDrink()
+    public List<string> GetPossibleOrderDrink(ref int _orderCount)//손님의 주문 생성
     {
         List<string> tmp = new List<string>();
         int randomTmp = Random.Range(0, 10);
         int count;
-        if(randomTmp <= DrinkNumberPercentage[currentStageNumber][2])
+
+        if(randomTmp <= DrinkNumberPercentage[currentStageNumber][0])
         {
-            count = 3;
+            count = 1;
+            Debug.Log("한번");
         }
         else if(randomTmp <= DrinkNumberPercentage[currentStageNumber][1])
         {
             count = 2;
+            Debug.Log("두번");
         }
         else 
         {
-            count = 1;
+            count = 3;
+            Debug.Log("세번");
         }
 
         for(int i = 0 ; i < count; i++)
         {
             randomTmp = Random.Range(0, 10);
 
-            if (randomTmp <= DrinkRankPercentage[currentStageNumber][2])
+            if (randomTmp <= DrinkRankPercentage[currentStageNumber][0])
             {
-                tmp.Add(Drink_3[Random.Range(0, Drink_3.Count)]);
+                tmp.Add(Drink_1[Random.Range(0, Drink_1.Count)]);
+                Debug.Log("1단계 요리");
             }
             else if (randomTmp <= DrinkRankPercentage[currentStageNumber][1])
             {
-                tmp.Add(Drink_3[Random.Range(0, Drink_2.Count)]);
+                tmp.Add(Drink_2[Random.Range(0, Drink_2.Count + 1)]);
+                Debug.Log("2단계 요리");
             }
             else
             {
-                tmp.Add(Drink_3[Random.Range(0, Drink_1.Count)]);
+                tmp.Add(Drink_3[Random.Range(0, Drink_3.Count + 1)]);
+                Debug.Log("3단계 요리");
             }
         }
-
+        _orderCount = count;
         return tmp;
+    }
+
+    public void UsePoint(int _Point)
+    {
+        
     }
 }

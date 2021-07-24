@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CustomerManager : MonoBehaviour
 {
-    public Customer customerPrefab;
+    public static CustomerManager instance;
+
+    public Customer[] customerPrefab;
+    public List<Vector2> customerPositionList;
 
     [SerializeField] Transform OnPoolingParent;
     [SerializeField] Transform OffPoolingParent;
@@ -13,9 +16,24 @@ public class CustomerManager : MonoBehaviour
     List<Customer> onList = new List<Customer>();
     List<Customer> offList = new List<Customer>();
 
+    List<bool> isCustomerPosition;
+
     float createCustomerDelay;
 
-    void SetOnPooling(Customer _customer)
+    private void Awake()
+    {
+        if(instance == null)
+            instance = this;
+
+        isCustomerPosition = new List<bool>();
+        for(int i = 0; i < customerPositionList.Count; i++)
+        {
+            isCustomerPosition.Add(false);
+        }
+
+    }
+
+    public void SetOnPooling(Customer _customer) //오브젝트 켤때 콜백함수
     {
         Customer findCustomer = offList.Find(o => o == _customer);
         if(findCustomer != null)
@@ -23,10 +41,11 @@ public class CustomerManager : MonoBehaviour
             findCustomer.transform.SetParent(OnPoolingParent);
             onList.Add(findCustomer);
             offList.Remove(findCustomer);
+            gameObject.SetActive(true);
         }
     }
 
-    void SetOffPooling(Customer _customer)
+    public void SetOffPooling(Customer _customer) //오브젝트 꺼질때 콜백함수
     {
         Customer findCustomer = onList.Find(o => o == _customer);
         if(findCustomer != null)
@@ -34,27 +53,22 @@ public class CustomerManager : MonoBehaviour
             findCustomer.transform.SetParent(OnPoolingParent);
             offList.Add(findCustomer);
             onList.Remove(findCustomer);
+            gameObject.SetActive(false);
         }
     }
 
-    void SettingCustomer(Customer _customer)
+    void SettingCustomer(Customer _customer)//주문음료, 타이머 설정
     {
+        int orderCount = 0;
+        _customer.SetOrderDrink(DataManager.instance.GetPossibleOrderDrink(ref orderCount), orderCount);
         _customer.SetTimer(DataManager.instance.GetCustomerTimer(_customer.OrderDrink.Count));
-        _customer.SetOrderDrink(DataManager.instance.GetPossibleOrderDrink(), 3);
     }
 
-    void SetSpriteAnimator(Customer _customer)
+    void InitCustomer()//customer 초기생성
     {
-        int spriteRend = Random.Range(0, _customer.CustomerSprites.Length);
-        _customer.GetComponent<SpriteRenderer>().sprite = _customer.CustomerSprites[spriteRend];
-        _customer.animator = _customer.CustomerAnimators[spriteRend];
-    }
-
-    void InitCustomer()
-    {
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < 3; i++)
         {
-            Customer tmp = Instantiate(customerPrefab.gameObject).GetComponent<Customer>();
+            Customer tmp = Instantiate(customerPrefab[i].gameObject).GetComponent<Customer>();
             tmp.name = "Customer_" + i.ToString();
             tmp.transform.SetParent(OffPoolingParent);
             tmp.gameObject.SetActive(false);
@@ -64,8 +78,38 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
+    public Vector2 RePositioningCustomer()
+    {
+        for(int i = 0; i < customerPositionList.Count; i++)
+        {
+            if(isCustomerPosition[i])
+            {
+                isCustomerPosition[i] = true;
+                return customerPositionList[i];
+            }
+        }
+        return Vector2.zero;
+    }
+
+    public void sapwnCustomer()
+    {
+        if(!offList.Count.Equals(0))
+        {
+            SettingCustomer(offList[0]);
+            RePositioningCustomer();
+            SetOnPooling(offList[0]);
+        }
+    }
+
     void Start()
     {
-        InitCustomer();
+        //임시 딜레이
+        Invoke("InitCustomer", 1);
+    }
+
+    void CustomerSapwn()
+    {
+        
     }
 }
+
