@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79001fdc773a4d24badbc59b07e1e66c, type: 3}
   m_Name: KingsSoup
   m_EditorClassIdentifier: 
-  FoodName: KingsSoup
-  FoodInfo: "\uC6A9\uC655\uB2D8 \uD2B9\uC81C \uC6A9\uAD81\uD0D5"
+  FoodName: "\uC6A9\uC655\uB2D8 \uD2B9\uC81C \uC6A9\uAD81\uD0D5"
+  FoodInfo: 
   foodtype: 0
   FoodSprite: {fileID: 0}
   Price: 0

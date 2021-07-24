@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79001fdc773a4d24badbc59b07e1e66c, type: 3}
   m_Name: BikiniFesta
   m_EditorClassIdentifier: 
-  FoodName: BikiniFesta
-  FoodInfo: "\uBE44\uD0A4\uB2C8 \uB3D9\uC0B0 \uB300\uCD95\uC81C"
+  FoodName: "\uBE44\uD0A4\uB2C8 \uB3D9\uC0B0 \uB300\uCD95\uC81C"
+  FoodInfo: 
   foodtype: 0
   FoodSprite: {fileID: 0}
   Price: 0
