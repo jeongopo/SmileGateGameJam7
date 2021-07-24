@@ -13,7 +13,9 @@ public class Customer : MonoBehaviour
     public Animator animator;
     public List<string> ReceivedDrink = new List<string>();
     public int positionNumber;
-    List<bool> OrderSuccess = new List<bool>();
+    public List<bool> OrderSuccess = new List<bool>();
+
+    List<int> StagePointLits = new List<int>();
     int OrderSuccessCount = 0;
 
     void OrderTimer()
@@ -22,7 +24,7 @@ public class Customer : MonoBehaviour
             Timer -= Time.deltaTime;
 
         if(Timer <= 0)
-            OrderOver();
+            OrderOver(true);
     }
 
     float GetTimer()
@@ -60,6 +62,15 @@ public class Customer : MonoBehaviour
             {
                 OrderSuccess[i] = true;
                 OrderSuccessCount++;
+
+                int addTmp = 0;
+                for(int j = 0 ; j < _ReceivedDrink.Ingredients.Length; j++)
+                {
+                    addTmp += _ReceivedDrink.Ingredients[j].Price;
+                }
+                StagePointLits.Add(addTmp * 3);
+                if (OrderSuccessCount >= OrderDrink.Count)
+                    OrderOver(false);
                 break;
             }
             else 
@@ -69,19 +80,22 @@ public class Customer : MonoBehaviour
             }
         }
        
-       if(OrderSuccessCount >= OrderDrink.Count)
-            OrderOver();
     }
 
     public void CustomerReset()
     {
         OrderDrink.Clear();
         OrderSuccess.Clear();
+        StagePointLits.Clear();
     }
 
-    void OrderOver() //시간종료, 주문완료
+    void OrderOver(bool _timerOver) //시간종료, 주문완료
     {
-        DataManager.instance.AcheiveStagePoint(OrderSuccessCount);
+        if(!_timerOver)
+        {
+            DataManager.instance.AcheiveStagePoint(StagePointLits, Order_Timer, Timer);
+            animator.SetTrigger("OrderSuccessTrigger");
+        }
         isOrder = false;
         //todo 손님제거
         CustomerManager.instance.SetOffPooling(this);
@@ -92,6 +106,11 @@ public class Customer : MonoBehaviour
     public void ReceiveDrink(Food _Drink) //음료 주기
     {
         CheckDrink(_Drink);
+    }
+
+    private void Update()
+    {
+        OrderTimer();
     }
 
 }
