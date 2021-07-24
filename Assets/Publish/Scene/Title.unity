@@ -1723,7 +1723,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2090256497}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Scememanager, Assembly-CSharp
         m_MethodName: Chage_Scene
         m_Mode: 3
@@ -1930,6 +1930,7 @@ GameObject:
   - component: {fileID: 1860863510}
   - component: {fileID: 1860863509}
   - component: {fileID: 1860863512}
+  - component: {fileID: 1860863513}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2014,6 +2015,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8534fbc66f91e40869e825e36c6886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1860863513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860863508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a8bb3af61bbf7f4dad98f6fbaa5588d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2090256492
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,7 +2039,6 @@ GameObject:
   - component: {fileID: 2090256495}
   - component: {fileID: 2090256494}
   - component: {fileID: 2090256493}
-  - component: {fileID: 2090256497}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2117,15 +2129,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2090256497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2090256492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a8bb3af61bbf7f4dad98f6fbaa5588d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
