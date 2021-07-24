@@ -6,19 +6,18 @@ using UnityEngine.UI;
 public class RecipeBook : MonoBehaviour
 {
     public Text text;
-    public Button[] buttons;
+    public Image[] buttons;
     public ScrollRecipeView scrollview;
     int stagenum=0;
-    public Color selectedcolor;
-    public Color normalcolor;
+
+    public Sprite nullimg;
+    public Sprite selectimg;
 
     void Start()
     {
         stagenum=FindObjectOfType<DataManager>().currentStageNumber;
         for(int i=0;i<3;i++){
-            ColorBlock colorBlock= buttons[i].colors;
-            colorBlock.normalColor=normalcolor;
-            buttons[i].colors=colorBlock;
+            buttons[i].sprite=nullimg;
         }
     }
 
@@ -53,17 +52,11 @@ public class RecipeBook : MonoBehaviour
     }
 
     void setNormalolorbtn(int n){
-        ColorBlock colorBlock= buttons[n-1].colors;
-        colorBlock.normalColor=normalcolor;
-        colorBlock.selectedColor=normalcolor;
-        buttons[n-1].colors=colorBlock;
+        buttons[n-1].sprite=nullimg;
     }
 
     void setSelectolorbtn(int n){
-        ColorBlock colorBlock= buttons[n-1].colors;
-        colorBlock.normalColor=selectedcolor;
-        colorBlock.selectedColor=selectedcolor;
-        buttons[n-1].colors=colorBlock;
+        buttons[n-1].sprite=selectimg;
     }
 
 }
