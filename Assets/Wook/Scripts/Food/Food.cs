@@ -16,7 +16,7 @@ public class Food : ScriptableObject
     public string FoodInfo;     //음식 정보
     public FoodType foodtype;   //타입
     public Sprite FoodSprite;   //스프라이트
-
+    public int Price;
     public Food[] Ingredients;  //재료 (재료 개수에 따라 랭크 1개면 1성)
 
 

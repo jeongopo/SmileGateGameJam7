@@ -16,4 +16,5 @@ MonoBehaviour:
   FoodInfo: 
   foodtype: 2
   FoodSprite: {fileID: 21300000, guid: 4516a2311d3f4b14c96690f7dce0ffea, type: 3}
+  Price: 35
   Ingredients: []
