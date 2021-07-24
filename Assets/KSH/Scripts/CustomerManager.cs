@@ -104,7 +104,7 @@ public class CustomerManager : MonoBehaviour
 
     public void SapwnCustomer()
     {
-        if(!offList.Count.Equals(0))
+        if(!offList.Count.Equals(0) && onList.Count < 3)
         {
             offList[0].transform.position = RePositioningCustomer(offList[0]);
             SettingCustomer(offList[0]);
