@@ -236,7 +236,6 @@ public class DataManager : MonoBehaviour
         List<string> tmp = new List<string>();
         int randomTmp = Random.Range(1, 11);
         int count;
-        Debug.Log(randomTmp);
 
         if(randomTmp <= DrinkNumberPercentage[currentStageNumber][0])
         {

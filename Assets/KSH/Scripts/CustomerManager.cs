@@ -67,6 +67,7 @@ public class CustomerManager : MonoBehaviour
         int orderCount = 0;
         _customer.SetOrderDrink(DataManager.instance.GetPossibleOrderDrink(ref orderCount), orderCount);
         _customer.SetTimer(DataManager.instance.GetCustomerTimer(_customer.OrderDrink.Count));
+        Debug.Log(_customer.positionNumber);
     }
 
     void InitCustomer()//customer 초기생성
@@ -102,9 +103,9 @@ public class CustomerManager : MonoBehaviour
     {
         if(!offList.Count.Equals(0))
         {
+            offList[0].transform.position = RePositioningCustomer(offList[0]);
             SettingCustomer(offList[0]);
             offList[0].isOrder = true;
-            offList[0].transform.position = RePositioningCustomer(offList[0]);
             SetOnPooling(offList[0]);
         }
     }

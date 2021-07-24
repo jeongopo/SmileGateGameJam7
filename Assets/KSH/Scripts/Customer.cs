@@ -135,7 +135,6 @@ public class Customer : MonoBehaviour
     private void Update()
     {
         OrderTimer();
-        Debug.Log(positionNumber);
     }
 
 }
