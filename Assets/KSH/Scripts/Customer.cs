@@ -83,13 +83,11 @@ public class Customer : MonoBehaviour
                 FindObjectOfType<OrderUIManager>().recivefood(positionNumber,i);
                 if (OrderSuccessCount >= OrderDrink.Count)
                     OrderOver(false);    
-                break;
+                return;
             }
 
-            //todo 실패애니메이션 재생
-            animator.SetTrigger("OrderFailTrigger");
         }
-       
+        animator.SetTrigger("OrderFailTrigger");
     }
 
     public void CustomerReset()
