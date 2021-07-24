@@ -26,7 +26,7 @@ public class OrderUI : MonoBehaviour
                 else {
                     string fname= customer.GetComponent<Customer>().OrderDrink[i];
 
-                    //Debug.Log(foodlist.Find(o => o.name==fname).FoodSprite);
+                    Debug.Log(foodlist.Find(o => o.name==fname).FoodSprite);
                     slots[i].changeimg(foodlist.Find(o => o.name==fname).FoodSprite);
 
                     // for(int j=0;j<foodlist.Length;j++){

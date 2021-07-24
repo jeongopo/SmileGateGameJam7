@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UI_HP : MonoBehaviour
 {
-    public Text[] images;
+    public Image[] images;
     private void Update()
     {
         for(int i = 0; i < DataManager.instance.fullHp; i++)
