@@ -163,6 +163,7 @@ public class Creat_Drink : MonoBehaviour
 
         drink.GetFood(CreatFood);
         Making_Drink.SetActive(false);
+        SoundManager.instance.PlaySoundEffect("Make");
         if (CreatFood != null)
             Debug.Log(CreatFood.FoodName);
         else
