@@ -205,6 +205,9 @@ public class DataManager : MonoBehaviour
         ResetStage();
         StageClearList[currentStageNumber - 1] = true;
         //결과창 띄워주기
+        FindObjectOfType<UI_Manager>().ClearPanel.SetActive(true);
+        if(currentStageNumber < 3)
+            FindObjectOfType<Unlookrecipe>().setfoodlist(currentStageNumber + 1);
     }
 
     void GameOver()

@@ -1933,6 +1933,7 @@ GameObject:
   - component: {fileID: 1878357288022827448}
   - component: {fileID: 1878357288022827451}
   - component: {fileID: 1878357288022827450}
+  - component: {fileID: 1034931244748551639}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -2032,6 +2033,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1034931244748551639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878357288022827445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2062c9bc5f97644e9d2d1fc4bc4823e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClearPanel: {fileID: 1751885913812118975}
 --- !u!1 &2002208689275762507
 GameObject:
   m_ObjectHideFlags: 0

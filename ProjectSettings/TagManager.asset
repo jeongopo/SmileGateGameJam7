@@ -6,6 +6,7 @@ TagManager:
   tags:
   - TrashCan
   - Customer
+  - CleaerPanel
   layers:
   - Default
   - TransparentFX
