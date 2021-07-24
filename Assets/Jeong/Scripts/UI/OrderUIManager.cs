@@ -9,9 +9,7 @@ public class OrderUIManager : MonoBehaviour
 
     void Start()
     {
-        for(int i=0;i<3;i++){
-            shapes[i].SetActive(false);
-        }
+        allinactive();
 
     }
     
@@ -24,9 +22,14 @@ public class OrderUIManager : MonoBehaviour
         shapes[num].GetComponent<OrderUI>().setimg();
     }
 
-    public void setFinish(GameObject tmp){ //customer가 off될때, slot을 off하는 함수
-        int num=tmp.GetComponent<Customer>().positionNumber;
+    public void setFinish(int num){ //customer가 off될때, slot을 off하는 함수
         shapes[num].SetActive(false);
+    }
+
+    public void allinactive(){
+        for(int i=0;i<3;i++){
+            shapes[i].SetActive(false);
+        }
     }
 
 }

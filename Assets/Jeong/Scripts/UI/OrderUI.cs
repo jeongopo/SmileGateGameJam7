@@ -25,7 +25,6 @@ public class OrderUI : MonoBehaviour
                 slots[i].gameObject.SetActive(false);
                 else {
                     string fname= customer.GetComponent<Customer>().OrderDrink[i];
-                    Debug.Log("주문 이름 : "+fname);
 
                     //Debug.Log(foodlist.Find(o => o.name==fname).FoodSprite);
                     slots[i].changeimg(foodlist.Find(o => o.name==fname).FoodSprite);
