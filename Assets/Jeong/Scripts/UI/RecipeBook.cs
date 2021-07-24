@@ -27,7 +27,7 @@ public class RecipeBook : MonoBehaviour
         setSelectolorbtn(1);
         setNormalolorbtn(2);
         setNormalolorbtn(3);
-        text.text="1등급 레시피";
+        text.text="1등급 레시피".ToString();
     }
 
     public void settwostar(){
@@ -36,9 +36,9 @@ public class RecipeBook : MonoBehaviour
             setSelectolorbtn(2);
             setNormalolorbtn(1);
             setNormalolorbtn(3);
-            text.text="2등급 레시피";
+            text.text="2등급 레시피".ToString();
         }else {
-            Debug.Log("클리어 레벨이 낮아 열 수 없음");
+           Debug.Log("클리어 레벨이 낮아 열 수 없음");
         }
     }
 
@@ -48,7 +48,7 @@ public class RecipeBook : MonoBehaviour
             setSelectolorbtn(3);
             setNormalolorbtn(2);
             setNormalolorbtn(1);
-            text.text="3등급 레시피";
+            text.text="3등급 레시피".ToString();
         }else Debug.Log("클리어 레벨이 낮아 열 수 없음");
     }
 
