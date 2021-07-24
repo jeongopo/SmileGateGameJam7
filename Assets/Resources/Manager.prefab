@@ -52,6 +52,8 @@ MonoBehaviour:
   - {fileID: 8609881390710374693, guid: 56fe10fab9a9ef74fa3e2fe18d72256a, type: 3}
   - {fileID: 6389759199693285626, guid: cf11c4dcc195452408506e009e52203c, type: 3}
   - {fileID: 3529320854184700587, guid: a349350740f8a3449ba11964d646edc7, type: 3}
+  - {fileID: 3529320854184700587, guid: 4df0c21abb2580a4f9eac8ddab0f925f, type: 3}
+  - {fileID: 3529320854184700587, guid: 50b785c037c240a408588f0f58404c79, type: 3}
   customerPositionList:
   - {x: -4, y: 2.5}
   - {x: 0.5, y: 2.5}

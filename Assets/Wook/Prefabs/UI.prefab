@@ -2135,6 +2135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClearPanel: {fileID: 1751885913812118975}
+  Overpanel: {fileID: 0}
 --- !u!1 &2002208689275762507
 GameObject:
   m_ObjectHideFlags: 0

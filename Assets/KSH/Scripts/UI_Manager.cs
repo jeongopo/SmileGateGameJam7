@@ -5,4 +5,5 @@ using UnityEngine;
 public class UI_Manager : MonoBehaviour
 {
     public GameObject ClearPanel;
+    public GameObject Overpanel;
 }

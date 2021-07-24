@@ -12,8 +12,8 @@ public class Scememanager : MonoBehaviour
 
     public void Title_Scene()
     {
-        GameManagerScript.instance.StopStage();
         SceneManager.LoadScene(0);
+        GameManagerScript.instance.StopStage();
     }
 
     public void Stage_Scene(int _stageNumber)
