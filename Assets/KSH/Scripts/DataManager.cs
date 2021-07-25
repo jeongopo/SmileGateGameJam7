@@ -219,6 +219,7 @@ public class DataManager : MonoBehaviour
 
         else
         {
+            SoundManager.instance.PlaySoundEffect("GameClear");
             FindObjectOfType<Scememanager>().EndingGame();
         }
         FindObjectOfType<ClearString>().setClearStr(currentStageNumber);
