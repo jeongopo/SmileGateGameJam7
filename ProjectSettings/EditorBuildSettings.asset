@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Publish/Scene/Select_Stage.unity
     guid: c6471d5defd1b79458d64788c144cd07
+  - enabled: 1
+    path: Assets/Publish/Scene/Eding.unity
+    guid: 130410a519c4a4d42884b1e39efd0dee
   m_configObjects: {}
