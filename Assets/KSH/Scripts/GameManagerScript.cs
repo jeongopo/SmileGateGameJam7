@@ -25,6 +25,7 @@ public class GameManagerScript : MonoBehaviour
     {
         CancelInvoke();
         CustomerManager.instance.ResetStage();
+        CustomerManager.instance.AllCustomerReset();
     }
 
     void StageStart()

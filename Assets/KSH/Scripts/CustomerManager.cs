@@ -12,9 +12,9 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] Transform OnPoolingParent;
     [SerializeField] Transform OffPoolingParent;
 
-    List<Customer> allList = new List<Customer>();
-    List<Customer> onList = new List<Customer>();
-    List<Customer> offList = new List<Customer>();
+    public List<Customer> allList = new List<Customer>();
+    public List<Customer> onList = new List<Customer>();
+    public List<Customer> offList = new List<Customer>();
 
     List<bool> isCustomerPosition;
 
@@ -41,9 +41,9 @@ public class CustomerManager : MonoBehaviour
         Customer findCustomer = offList.Find(o => o == _customer);
         if(findCustomer != null)
         {
-            findCustomer.transform.SetParent(OnPoolingParent);
             onList.Add(findCustomer);
             offList.Remove(findCustomer);
+            findCustomer.transform.SetParent(OnPoolingParent);
             findCustomer.gameObject.SetActive(true);
             FindObjectOfType<OrderUIManager>().setStart(findCustomer);
         }
@@ -54,9 +54,9 @@ public class CustomerManager : MonoBehaviour
         Customer findCustomer = onList.Find(o => o == _customer);
         if(findCustomer != null)
         {
-            findCustomer.transform.SetParent(OnPoolingParent);
             offList.Add(findCustomer);
             onList.Remove(findCustomer);
+            findCustomer.transform.SetParent(OffPoolingParent);
             findCustomer.gameObject.SetActive(false);
             isCustomerPosition[_customer.positionNumber] = false;
             
@@ -118,6 +118,19 @@ public class CustomerManager : MonoBehaviour
         {
             onList[0].isOrder = false;
             SetOffPooling(onList[0]);
+        }
+    }
+
+    public void AllCustomerReset()
+    {
+        for(int i = 0; i < allList.Count;i ++)
+        {
+            Customer tmp = onList.Find(o => o == allList[i]);
+            allList[i].CustomerReset();
+            if(tmp != null)
+            {
+                SetOffPooling(tmp);
+            }
         }
     }
 
