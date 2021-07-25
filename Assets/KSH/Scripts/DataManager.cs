@@ -214,9 +214,16 @@ public class DataManager : MonoBehaviour
         ResetStage();
         //결과창 띄워주기
         FindObjectOfType<UI_Manager>().ClearPanel.SetActive(true);
-        FindObjectOfType<ClearString>().setClearStr(currentStageNumber);
         if(currentStageNumber < 3)
             FindObjectOfType<Unlookrecipe>().setfoodlist(currentStageNumber + 1);
+
+        else
+        {
+            SoundManager.instance.PlaySoundEffect("GameClear");
+            FindObjectOfType<Scememanager>().EndingGame();
+        }
+        FindObjectOfType<ClearString>().setClearStr(currentStageNumber);
+
     }
 
     void GameOver()

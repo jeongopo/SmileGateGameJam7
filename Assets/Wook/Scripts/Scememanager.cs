@@ -40,6 +40,11 @@ public class Scememanager : MonoBehaviour
         Stage_Scene(3);
     }
 
+    public void EndingGame()
+    {
+        SceneManager.LoadScene(3);
+    }
+
     public void End_Game()
     {
         Application.Quit();
