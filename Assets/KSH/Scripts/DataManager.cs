@@ -217,6 +217,10 @@ public class DataManager : MonoBehaviour
         FindObjectOfType<ClearString>().setClearStr(currentStageNumber);
         if(currentStageNumber < 3)
             FindObjectOfType<Unlookrecipe>().setfoodlist(currentStageNumber + 1);
+        else
+        {
+            FindObjectOfType<Scememanager>().EndingGame();
+        }
     }
 
     void GameOver()
