@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultPoint: 1000
-  clearPoint: 581b0000983a0000a8610000
+  clearPoint: b0040000983a0000a8610000
   StageClearList: 000000
   Drink_1: []
   Drink_2: []

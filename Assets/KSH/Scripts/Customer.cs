@@ -72,7 +72,7 @@ public class Customer : MonoBehaviour
             if (OrderDrink[i].Equals(ReceivedDrinkName))
             {
                 OrderSuccess[i] = true;
-                OrderSuccessCount++;
+                OrderSuccessCount += 1;
 
                 int addTmp = 0;
                 for(int j = 0 ; j < _ReceivedDrink.Ingredients.Length; j++)
