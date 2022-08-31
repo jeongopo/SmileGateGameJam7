@@ -15,7 +15,7 @@
     <li><a href="#about-the-project"> ➤ About The Project</a></li>
     <li><a href="#overview"> ➤ Overview</a></li>
     <li><a href="#project-files-description"> ➤ Project Files Description</a></li>
-    <li><a href="#getting-started"> ➤ Getting Started</a></li>
+    <li><a href="#project-files-description"> ➤ Project Files Description</a></li>
   </ol>
 </details>
 
@@ -39,13 +39,10 @@
 <h2 id="project-files-description"> :floppy_disk: Project Files Description (in SmileGateGameJam7/Assets/Jeong) </h2>
 
 <ul>
-  <li><b>search.py</b> - Where all of the search algorithms reside.</li>
-  <li><b>searchAgents.py</b> - Where all of the search-based agents reside.</li>
-  <li><b>pacman.py</b> - The main file that runs Pacman games. This file also describes a Pacman GameState types.</li>
-  <li><b>game.py</b> - The logic behind how the Pacman world works.</li>
-  <li><b>util.py</b> - Useful data structures for implementing search algorithms.</li>
+  <li><b>OrderUIManager.cs</b> - Customer와 관련한 UI들을 켜고 끄는 클래스</li>
+  <li><b>RecipyBook.cs</b> - 해금된 정도에 따라 레시피 값을 불러오는 클래스 </li>
+  <li><b>ScrollRecipeView.cs</b> - 레시피북의 내용을 동적으로 다르게 불러오게 하는 클래스</li>
 </ul>
 
-<!-- GETTING STARTED -->
-<h2 id="getting-started"> :book: Getting Started</h2>
+
 
